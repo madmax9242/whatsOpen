@@ -37,6 +37,16 @@ public class TimeOff {
 		this.saturday = saturday;
 		this.sunday = sunday;
 	}
+	
+	
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public boolean isMonday() {
 		return monday;

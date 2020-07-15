@@ -50,6 +50,16 @@ public class EmployeeSchedule {
 		this.sundayDay = sundayDay;
 		this.sundayNight = sundayNight;
 	}
+	
+	
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public boolean isMondayDay() {
 		return mondayDay;
