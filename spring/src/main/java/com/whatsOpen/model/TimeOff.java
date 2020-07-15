@@ -14,6 +14,7 @@ public class TimeOff {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "timeOff_seq")
 	private Integer id;
+	private Integer employeeId;
 	private boolean monday;
 	private boolean tuesday;
 	private boolean wednesday;
@@ -26,9 +27,9 @@ public class TimeOff {
 		
 	}
 	
-	public TimeOff(boolean monday, boolean tuesday, boolean wednesday, boolean thursday, boolean friday,
+	public TimeOff(Integer employeeId, boolean monday, boolean tuesday, boolean wednesday, boolean thursday, boolean friday,
 			boolean saturday, boolean sunday) {
-		super();
+		this.employeeId = employeeId;
 		this.monday = monday;
 		this.tuesday = tuesday;
 		this.wednesday = wednesday;
@@ -46,6 +47,14 @@ public class TimeOff {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Integer getEmployeeId() {
+		return employeeId;
+	}
+
+	public void setEmployeeId(Integer employeeId) {
+		this.employeeId = employeeId;
 	}
 
 	public boolean isMonday() {
