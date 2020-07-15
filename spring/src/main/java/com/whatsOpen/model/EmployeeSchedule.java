@@ -77,7 +77,7 @@ public class EmployeeSchedule {
 		return employeeId;
 	}
 
-	public void setEmployee_id(Integer employeeId) {
+	public void setEmployeeId(Integer employeeId) {
 		this.employeeId = employeeId;
 	}
 
