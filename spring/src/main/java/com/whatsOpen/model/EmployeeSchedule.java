@@ -1,17 +1,29 @@
 package com.whatsOpen.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import com.whatsOpen.model.Employee;
+
 
 @Entity
 @SequenceGenerator(name = "employee_schedule_seq", initialValue = 301)
+@Table( name = "employee_schedule")
 public class EmployeeSchedule {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_schedule_seq")
 	private Integer id;
+	
+	//@OneToOne(mappedBy = "employee")
+	//private Employee employee;
+	
+	private Integer employeeId;
 	private boolean mondayDay;
 	private boolean mondayNight;
 	private boolean tuesdayDay;
@@ -31,10 +43,10 @@ public class EmployeeSchedule {
 		
 	}
 	
-	public EmployeeSchedule(boolean mondayDay, boolean mondayNight, boolean tuesdayDay, boolean tuesdayNight,
+	public EmployeeSchedule(Integer employeeId, boolean mondayDay, boolean mondayNight, boolean tuesdayDay, boolean tuesdayNight,
 			boolean wednesdayDay, boolean wednesdayNight, boolean thursdayDay, boolean thursdayNight, boolean fridayDay,
 			boolean fridayNight, boolean saturdayDay, boolean saturdayNight, boolean sundayDay, boolean sundayNight) {
-		super();
+		this.employeeId = employeeId;
 		this.mondayDay = mondayDay;
 		this.mondayNight = mondayNight;
 		this.tuesdayDay = tuesdayDay;
@@ -59,6 +71,14 @@ public class EmployeeSchedule {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	
+	public Integer getEmployeeId() {
+		return employeeId;
+	}
+
+	public void setEmployeeId(Integer employeeId) {
+		this.employeeId = employeeId;
 	}
 
 	public boolean isMondayDay() {

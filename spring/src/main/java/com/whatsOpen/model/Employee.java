@@ -1,13 +1,19 @@
 package com.whatsOpen.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import com.whatsOpen.model.EmployeeSchedule;
 
 @Entity
 @SequenceGenerator(name = "employee_seq", initialValue = 101)
+@Table(name = "employee")
 public class Employee {
 	
 	@Id
@@ -17,7 +23,11 @@ public class Employee {
 	private String lastName;
 	private String email;
 	private String password;
-	//private String ssn;
+	private Integer employeeScheduleId;
+	
+//	@OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "employee_schedule_id", referencedColumnName = "id")
+//	private EmployeeSchedule schedule;
 	
 	public Employee() {
 		
@@ -59,11 +69,20 @@ public class Employee {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public Integer getEmployeeScheduleId() {
+		return employeeScheduleId;
+	}
+	public void setEmployeeScheduleId(Integer employeeScheduleId) {
+		this.employeeScheduleId = employeeScheduleId;
+	}
 	@Override
 	public String toString() {
-		return "Employee [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", password="
-				+ password + "]";
+		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", password=" + password + ", employeeScheduleId=" + employeeScheduleId + "]";
 	}
+
+	
 	
 	
 
