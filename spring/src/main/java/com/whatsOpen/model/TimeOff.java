@@ -1,7 +1,5 @@
 package com.whatsOpen.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,12 +10,8 @@ import javax.persistence.Table;
 @Entity
 @SequenceGenerator(name = "timeOff_seq", initialValue = 201)
 @Table
-public class TimeOff implements Serializable{
+public class TimeOff{
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "timeOff_seq")
 	private Integer id;
