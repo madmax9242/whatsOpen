@@ -2,6 +2,7 @@ package com.whatsOpen.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.whatsOpen.dao.EmployeeScheduleDao;
@@ -11,7 +12,8 @@ import com.whatsOpen.service.EmployeeScheduleService;
 @Service
 public class EmployeeScheduleServiceImp implements EmployeeScheduleService {
 	
-	EmployeeScheduleDao esd;
+	@Autowired
+	private EmployeeScheduleDao esd;
 
 	@Override
 	public EmployeeSchedule findEmployeeScheduleById(Integer id) {
@@ -36,7 +38,6 @@ public class EmployeeScheduleServiceImp implements EmployeeScheduleService {
 	@Override
 	public void deleteScheduleById(Integer id) {
 		esd.deleteById(id);
-		
 	}
 
 }

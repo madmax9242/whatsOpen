@@ -2,6 +2,7 @@ package com.whatsOpen.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -9,12 +10,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import com.whatsOpen.model.EmployeeSchedule;
 
 @Entity
 @SequenceGenerator(name = "employee_seq", initialValue = 101)
-@Table(name = "employee")
+@Table(name = "tb_employee")
 public class Employee {
+
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_seq")
@@ -25,9 +26,23 @@ public class Employee {
 	private String password;
 	private Integer employeeScheduleId;
 	
-//	@OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "employee_schedule_id", referencedColumnName = "id")
+	//@OneToOne(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "employee_schedule_id", referencedColumnName = "id")
+	
+	@OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "employee_id", nullable = false)
+	private EmployeeSchedule schedule;
+	
+	
+//	@OneToOne(fetch = FetchType.LAZY, cascade =  CascadeType.ALL, mappedBy = "employee")
 //	private EmployeeSchedule schedule;
+//	
+//	public EmployeeSchedule getSchedule() {
+//		return schedule;
+//	}
+//	public void setSchedule(EmployeeSchedule schedule) {
+//		this.schedule = schedule;
+//	}
 	
 	public Employee() {
 		
@@ -76,11 +91,7 @@ public class Employee {
 	public void setEmployeeScheduleId(Integer employeeScheduleId) {
 		this.employeeScheduleId = employeeScheduleId;
 	}
-	@Override
-	public String toString() {
-		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", password=" + password + ", employeeScheduleId=" + employeeScheduleId + "]";
-	}
+
 
 	
 	
