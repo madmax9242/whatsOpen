@@ -5,3 +5,19 @@ table {
 th.mat-sort-header-sorted {
 	color: red;
 }
+
+.mat-focus-indicator {
+	background-color: transparent!important;
+}
+
+.mat-button-focus-overlay {
+	background-color: transparent!important;
+}
+
+.cdk-focused {
+	background-color: transparent!important;
+}
+
+.cdk-mouse-focused {
+	background-color: transparent!important;
+}
