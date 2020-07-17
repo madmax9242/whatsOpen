@@ -20,20 +20,13 @@ public class EmployeeSchedule{
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_schedule_seq")
 	private Integer id;
 	
-	private boolean mondayDay;
-	private boolean mondayNight;
-	private boolean tuesdayDay;
-	private boolean tuesdayNight;
-	private boolean wednesdayDay;
-	private boolean wednesdayNight;
-	private boolean thursdayDay;
-	private boolean thursdayNight;
-	private boolean fridayDay;
-	private boolean fridayNight;
-	private boolean saturdayDay;
-	private boolean saturdayNight;
-	private boolean sundayDay;
-	private boolean sundayNight;
+	private String monday;
+	private String tuesday;
+	private String wednesday;
+	private String thursday;
+	private String friday;
+	private String saturday;
+	private String sunday;
 	
 	@OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "employee_id", nullable = false)
@@ -48,117 +41,61 @@ public class EmployeeSchedule{
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-	public boolean isMondayDay() {
-		return mondayDay;
+	
+	public String getMonday() {
+		return monday;
 	}
 
-	public void setMondayDay(boolean mondayDay) {
-		this.mondayDay = mondayDay;
+	public void setMonday(String monday) {
+		this.monday = monday;
 	}
 
-	public boolean isMondayNight() {
-		return mondayNight;
+	public String getTuesday() {
+		return tuesday;
 	}
 
-	public void setMondayNight(boolean mondayNight) {
-		this.mondayNight = mondayNight;
+	public void setTuesday(String tuesday) {
+		this.tuesday = tuesday;
 	}
 
-	public boolean isTuesdayDay() {
-		return tuesdayDay;
+	public String getWednesday() {
+		return wednesday;
 	}
 
-	public void setTuesdayDay(boolean tuesdayDay) {
-		this.tuesdayDay = tuesdayDay;
+	public void setWednesday(String wednesday) {
+		this.wednesday = wednesday;
 	}
 
-	public boolean isTuesdayNight() {
-		return tuesdayNight;
+	public String getThursday() {
+		return thursday;
 	}
 
-	public void setTuesdayNight(boolean tuesdayNight) {
-		this.tuesdayNight = tuesdayNight;
+	public void setThursday(String thursday) {
+		this.thursday = thursday;
 	}
 
-	public boolean isWednesdayDay() {
-		return wednesdayDay;
+	public String getFriday() {
+		return friday;
 	}
 
-	public void setWednesdayDay(boolean wednesdayDay) {
-		this.wednesdayDay = wednesdayDay;
+	public void setFriday(String friday) {
+		this.friday = friday;
 	}
 
-	public boolean isWednesdayNight() {
-		return wednesdayNight;
+	public String getSaturday() {
+		return saturday;
 	}
 
-	public void setWednesdayNight(boolean wednesdayNight) {
-		this.wednesdayNight = wednesdayNight;
+	public void setSaturday(String saturday) {
+		this.saturday = saturday;
 	}
 
-	public boolean isThursdayDay() {
-		return thursdayDay;
+	public String getSunday() {
+		return sunday;
 	}
 
-	public void setThursdayDay(boolean thursdayDay) {
-		this.thursdayDay = thursdayDay;
-	}
-
-	public boolean isThursdayNight() {
-		return thursdayNight;
-	}
-
-	public void setThursdayNight(boolean thursdayNight) {
-		this.thursdayNight = thursdayNight;
-	}
-
-	public boolean isFridayDay() {
-		return fridayDay;
-	}
-
-	public void setFridayDay(boolean fridayDay) {
-		this.fridayDay = fridayDay;
-	}
-
-	public boolean isFridayNight() {
-		return fridayNight;
-	}
-
-	public void setFridayNight(boolean fridayNight) {
-		this.fridayNight = fridayNight;
-	}
-
-	public boolean isSaturdayDay() {
-		return saturdayDay;
-	}
-
-	public void setSaturdayDay(boolean saturdayDay) {
-		this.saturdayDay = saturdayDay;
-	}
-
-	public boolean isSaturdayNight() {
-		return saturdayNight;
-	}
-
-	public void setSaturdayNight(boolean saturdayNight) {
-		this.saturdayNight = saturdayNight;
-	}
-
-	public boolean isSundayDay() {
-		return sundayDay;
-	}
-
-	public void setSundayDay(boolean sundayDay) {
-		this.sundayDay = sundayDay;
-	}
-
-	public boolean isSundayNight() {
-		return sundayNight;
-	}
-
-	public void setSundayNight(boolean sundayNight) {
-		this.sundayNight = sundayNight;
+	public void setSunday(String sunday) {
+		this.sunday = sunday;
 	}
 
 	public Employee getEmployee() {
