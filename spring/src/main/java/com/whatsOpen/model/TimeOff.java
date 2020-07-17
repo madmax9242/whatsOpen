@@ -5,11 +5,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 @Entity
 @SequenceGenerator(name = "timeOff_seq", initialValue = 201)
-
-public class TimeOff {
+@Table
+public class TimeOff{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "timeOff_seq")

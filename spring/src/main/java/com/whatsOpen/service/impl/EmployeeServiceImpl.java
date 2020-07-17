@@ -13,7 +13,7 @@ import com.whatsOpen.service.EmployeeService;
 public class EmployeeServiceImpl implements EmployeeService {
 
 	@Autowired
-	EmployeeDao eDao;
+	private EmployeeDao eDao;
 	
 	@Override
 	public Employee createEmployee(Employee e) {

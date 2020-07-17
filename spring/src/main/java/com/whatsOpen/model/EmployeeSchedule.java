@@ -1,7 +1,7 @@
 package com.whatsOpen.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -9,21 +9,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import com.whatsOpen.model.Employee;
 
 
 @Entity
 @SequenceGenerator(name = "employee_schedule_seq", initialValue = 301)
-@Table( name = "employee_schedule")
-public class EmployeeSchedule {
+@Table( name = "tb_employee_schedule")
+public class EmployeeSchedule{
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_schedule_seq")
 	private Integer id;
 	
-	//@OneToOne(mappedBy = "employee")
-	//private Employee employee;
-	
-	private Integer employeeId;
 	private boolean mondayDay;
 	private boolean mondayNight;
 	private boolean tuesdayDay;
@@ -39,31 +35,11 @@ public class EmployeeSchedule {
 	private boolean sundayDay;
 	private boolean sundayNight;
 	
-	public EmployeeSchedule() {
-		
-	}
+	@OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "employee_id", nullable = false)
+	private Employee employee;
 	
-	public EmployeeSchedule(Integer employeeId, boolean mondayDay, boolean mondayNight, boolean tuesdayDay, boolean tuesdayNight,
-			boolean wednesdayDay, boolean wednesdayNight, boolean thursdayDay, boolean thursdayNight, boolean fridayDay,
-			boolean fridayNight, boolean saturdayDay, boolean saturdayNight, boolean sundayDay, boolean sundayNight) {
-		this.employeeId = employeeId;
-		this.mondayDay = mondayDay;
-		this.mondayNight = mondayNight;
-		this.tuesdayDay = tuesdayDay;
-		this.tuesdayNight = tuesdayNight;
-		this.wednesdayDay = wednesdayDay;
-		this.wednesdayNight = wednesdayNight;
-		this.thursdayDay = thursdayDay;
-		this.thursdayNight = thursdayNight;
-		this.fridayDay = fridayDay;
-		this.fridayNight = fridayNight;
-		this.saturdayDay = saturdayDay;
-		this.saturdayNight = saturdayNight;
-		this.sundayDay = sundayDay;
-		this.sundayNight = sundayNight;
-	}
-	
-	
+	public EmployeeSchedule() {}
 
 	public Integer getId() {
 		return id;
@@ -71,14 +47,6 @@ public class EmployeeSchedule {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-	
-	public Integer getEmployeeId() {
-		return employeeId;
-	}
-
-	public void setEmployeeId(Integer employeeId) {
-		this.employeeId = employeeId;
 	}
 
 	public boolean isMondayDay() {
@@ -193,17 +161,12 @@ public class EmployeeSchedule {
 		this.sundayNight = sundayNight;
 	}
 
-	@Override
-	public String toString() {
-		return "EmployeeSchedule [mondayDay=" + mondayDay + ", mondayNight=" + mondayNight + ", tuesdayDay="
-				+ tuesdayDay + ", tuesdayNight=" + tuesdayNight + ", wednesdayDay=" + wednesdayDay + ", wednesdayNight="
-				+ wednesdayNight + ", thursdayDay=" + thursdayDay + ", thursdayNight=" + thursdayNight + ", fridayDay="
-				+ fridayDay + ", fridayNight=" + fridayNight + ", saturdayDay=" + saturdayDay + ", saturdayNight="
-				+ saturdayNight + ", sundayDay=" + sundayDay + ", sundayNight=" + sundayNight + "]";
+	public Employee getEmployee() {
+		return employee;
 	}
-	
-	
-	
-	
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
 
 }
