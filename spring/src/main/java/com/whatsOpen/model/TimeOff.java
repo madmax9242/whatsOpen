@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @SequenceGenerator(name = "timeOff_seq", initialValue = 201)
-@Table
+@Table( name = "tb_time_off")
 public class TimeOff{
 	
 	@Id
