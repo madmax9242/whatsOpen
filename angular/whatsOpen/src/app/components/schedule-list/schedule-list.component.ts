@@ -7,7 +7,7 @@ import { Employee } from '../../classes/employee';
 import { EmployeeSchedule } from "../../classes/employee-schedule";
 
 // Fixed data, based on Employee class
-const EMP_DATA: EmployeeSchedule[] = [
+const SCHEDULE_DATA: EmployeeSchedule[] = [
 	{ id: 1, monday: "day", tuesday: "off", wednesday: "night", thursday: "night", friday: "off", saturday: "day", sunday: "off", employee: null},
 	{ id: 2, monday: "off", tuesday: "night", wednesday: "day", thursday: "off", friday: "day", saturday: "night", sunday: "off", employee: null},
 	{ id: 3, monday: "day", tuesday: "off", wednesday: "night", thursday: "off", friday: "off", saturday: "day", sunday: "night", employee: null},
@@ -41,7 +41,7 @@ export class ScheduleListComponent implements OnInit {
 	}
 
 	displayedColumns: string[] = ['id', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'employee'];
-	dataSource = new MatTableDataSource<EmployeeSchedule>(EMP_DATA);
+	dataSource = new MatTableDataSource<EmployeeSchedule>(SCHEDULE_DATA);
 
 	// Pagination
 	@ViewChild(MatPaginator, { static: true }) paginator: MatPaginator; // scans for paginator in HTML and assigns to reference variable paginator
