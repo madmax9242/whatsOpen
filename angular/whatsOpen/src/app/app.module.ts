@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 
 import { ScheduleListComponent } from './components/schedule-list/schedule-list.component';
 import { EmployeeInfoComponent } from './components/employee-info/employee-info.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
 	declarations: [
@@ -27,6 +28,7 @@ import { EmployeeInfoComponent } from './components/employee-info/employee-info.
 		MatSortModule,
 		MatFormFieldModule,
 		MatInputModule,
+		AppRoutingModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent]

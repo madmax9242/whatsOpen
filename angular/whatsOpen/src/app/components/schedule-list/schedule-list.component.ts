@@ -12,7 +12,7 @@ const SCHEDULE_DATA: EmployeeSchedule[] = [
 	{ id: 2, monday: "off", tuesday: "night", wednesday: "day", thursday: "off", friday: "day", saturday: "night", sunday: "off", employeeId: 102},
 	{ id: 3, monday: "day", tuesday: "off", wednesday: "night", thursday: "off", friday: "off", saturday: "day", sunday: "night", employeeId: 103},
 	{ id: 4, monday: "off", tuesday: "day", wednesday: "day", thursday: "night", friday: "day", saturday: "off", sunday: "day", employeeId: 104},
-	
+
 ];
 
 @Component({
