@@ -4,24 +4,15 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 
 import { Employee } from '../../classes/employee';
+import { EmployeeSchedule } from "../../classes/employee-schedule";
 
 // Fixed data, based on Employee class
-const EMP_DATA: Employee[] = [
-	{ id: 101, firstName: "John", lastName: "Doe", email: "john@doe.com", password: "abc123", employeeScheduleId: 1001 },
-	{ id: 102, firstName: "Jane", lastName: "Doe", email: "jane@doe.com", password: "123abc", employeeScheduleId: 1002 },
-	{ id: 103, firstName: "TK", lastName: "Tran", email: "tk@tran.com", password: "ABC123", employeeScheduleId: 1003 },
-	{ id: 104, firstName: "Max", lastName: "DePriest", email: "max@depriest.com", password: "ABC123", employeeScheduleId: 1004 },
-	{ id: 105, firstName: "Sergio", lastName: "Bernal", email: "sergio@bernal.com", password: "ABC123", employeeScheduleId: 1005 },
-	{ id: 106, firstName: "Test", lastName: "Test", email: "test@test.com", password: "test123", employeeScheduleId: 1006 },
-	{ id: 107, firstName: "Test", lastName: "Test", email: "test@test.com", password: "test123", employeeScheduleId: 1007 },
-	{ id: 108, firstName: "Test", lastName: "Test", email: "test@test.com", password: "test123", employeeScheduleId: 1008 },
-	{ id: 109, firstName: "Test", lastName: "Test", email: "test@test.com", password: "test123", employeeScheduleId: 1009 },
-	{ id: 110, firstName: "Test", lastName: "Test", email: "test@test.com", password: "test123", employeeScheduleId: 1010 },
-	{ id: 111, firstName: "Test", lastName: "Test", email: "test@test.com", password: "test123", employeeScheduleId: 1011 },
-	{ id: 112, firstName: "Test", lastName: "Test", email: "test@test.com", password: "test123", employeeScheduleId: 1012 },
-	{ id: 113, firstName: "Test", lastName: "Test", email: "test@test.com", password: "test123", employeeScheduleId: 1013 },
-	{ id: 114, firstName: "Test", lastName: "Test", email: "test@test.com", password: "test123", employeeScheduleId: 1014 },
-	{ id: 115, firstName: "Test", lastName: "Test", email: "test@test.com", password: "test123", employeeScheduleId: 1015 },
+const SCHEDULE_DATA: EmployeeSchedule[] = [
+	{ id: 1, monday: "day", tuesday: "off", wednesday: "night", thursday: "night", friday: "off", saturday: "day", sunday: "off", employeeId: 101},
+	{ id: 2, monday: "off", tuesday: "night", wednesday: "day", thursday: "off", friday: "day", saturday: "night", sunday: "off", employeeId: 102},
+	{ id: 3, monday: "day", tuesday: "off", wednesday: "night", thursday: "off", friday: "off", saturday: "day", sunday: "night", employeeId: 103},
+	{ id: 4, monday: "off", tuesday: "day", wednesday: "day", thursday: "night", friday: "day", saturday: "off", sunday: "day", employeeId: 104},
+
 ];
 
 @Component({
@@ -38,8 +29,8 @@ export class ScheduleListComponent implements OnInit {
 		this.dataSource.sort = this.sort; // links our sort reference to data source
 	}
 
-	displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'password', 'employeeScheduleId'];
-	dataSource = new MatTableDataSource<Employee>(EMP_DATA);
+	displayedColumns: string[] = ['id', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+	dataSource = new MatTableDataSource<EmployeeSchedule>(SCHEDULE_DATA);
 
 	// Pagination
 	@ViewChild(MatPaginator, { static: true }) paginator: MatPaginator; // scans for paginator in HTML and assigns to reference variable paginator

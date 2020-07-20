@@ -1,0 +1,65 @@
+<div class="container p-4 my-4 shadow">
+
+	<!-- Filtering -->
+	<div class="container">
+		<mat-form-field>
+			<mat-label>Filter</mat-label>
+			<input matInput (keyup)="applyFilter($event)" placeholder="Ex. id" #input>
+		</mat-form-field>
+	</div>
+
+	<!-- Table -->
+	<div class="container">
+		<table mat-table [dataSource]="dataSource" matSort>
+
+			<!--- Note that these columns can be defined in any order.
+						The actual rendered columns are set in mat-header-row property on the row definition" -->
+
+			<!-- id Column -->
+			<ng-container matColumnDef="id">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header class="non-outline"> ID </th>
+				<td mat-cell *matCellDef="let employee"> {{employee.id}} </td>
+			</ng-container>
+
+			<!-- firstName Column -->
+			<ng-container matColumnDef="firstName">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+				<td mat-cell *matCellDef="let employee"> {{employee.firstName}} </td>
+			</ng-container>
+
+			<!-- lastName Column -->
+			<ng-container matColumnDef="lastName">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+				<td mat-cell *matCellDef="let employee"> {{employee.lastName}} </td>
+			</ng-container>
+
+			<!-- email Column -->
+			<ng-container matColumnDef="email">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+				<td mat-cell *matCellDef="let employee"> {{employee.email}} </td>
+			</ng-container>
+
+			<!-- password Column -->
+			<ng-container matColumnDef="password">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header> Password </th>
+				<td mat-cell *matCellDef="let employee"> {{employee.password}} </td>
+			</ng-container>
+
+			<!-- employeeScheduleId Column -->
+			<ng-container matColumnDef="employeeScheduleId">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header> Employee Schedule ID </th>
+				<td mat-cell *matCellDef="let employee"> {{employee.employeeScheduleId}} </td>
+			</ng-container>
+
+			<!-- Defines what columns are rendered -->
+			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+			<!-- Defines what rows are rendered, based on rendered columns -->
+			<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+		</table>
+	</div>
+
+	<!-- Pagination -->
+	<div class="container">
+		<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+	</div>
+</div>
