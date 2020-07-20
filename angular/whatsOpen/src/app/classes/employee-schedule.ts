@@ -10,6 +10,6 @@ export class EmployeeSchedule {
     friday: string;
     saturday: string;
     sunday: string;
-    employee: Employee;
+    employeeId: number;
 
 }

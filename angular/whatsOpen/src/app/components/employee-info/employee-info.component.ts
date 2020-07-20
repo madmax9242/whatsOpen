@@ -8,7 +8,7 @@ import { Employee } from '../../classes/employee';
 // Fixed data, based on Employee class
 const EMP_DATA: Employee[] = [
 	{ id: 101, firstName: "John", lastName: "Doe", email: "john@doe.com", password: "abc123", employeeScheduleId: 1001 },
-	{ id: 102, firstName: "Jane", lastName: "Doe", email: "jane@doe.com", password: "123abc", employeeScheduleId: 1002 },
+	{ id: 102, firstName: "Ewok", lastName: "Spacebear", email: "ewok@test.com", password: "c3po", employeeScheduleId: 1002 },
 	{ id: 103, firstName: "TK", lastName: "Tran", email: "tk@tran.com", password: "ABC123", employeeScheduleId: 1003 },
 	{ id: 104, firstName: "Max", lastName: "DePriest", email: "max@depriest.com", password: "ABC123", employeeScheduleId: 1004 },
 	{ id: 105, firstName: "Sergio", lastName: "Bernal", email: "sergio@bernal.com", password: "ABC123", employeeScheduleId: 1005 },
@@ -18,7 +18,7 @@ const EMP_DATA: Employee[] = [
 	{ id: 109, firstName: "Han", lastName: "Solo", email: "han@test.com", password: "falcon", employeeScheduleId: 1009 },
 	{ id: 110, firstName: "Luke", lastName: "Skywalker", email: "luke@test.com", password: "tatooine", employeeScheduleId: 1010 },
 	{ id: 111, firstName: "Anakin", lastName: "Skywalker", email: "anakin@test.com", password: "padme", employeeScheduleId: 1011 },
-	{ id: 112, firstName: "Ewok", lastName: "Spacebear", email: "ewok@test.com", password: "c3po", employeeScheduleId: 1012 },
+	{ id: 112, firstName: "Malcom", lastName: "Reynolds", email: "mal@test.com", password: "shiny", employeeScheduleId: 1012 },
 ];
 
 @Component({
