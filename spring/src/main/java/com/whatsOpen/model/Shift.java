@@ -21,25 +21,28 @@ public class Shift implements Serializable{
 	private Date date;
 	private String description;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "employeeId", nullable = false)
-	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-	private Employee employee;
+//	@ManyToOne
+//    @JoinColumn(name="employee_id", insertable = false, updatable = false)
+//	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+//	private Employee employee;
 //    @OnDelete(action = OnDeleteAction.CASCADE)
 	
+	private Integer employeeId;
+	
 	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="shiftTypeId",nullable = false)
+	@JoinColumn()
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private ShiftType shiftType;
 	
 	public Shift() {}
 
-	public Shift(int id, Date date, String description, Employee employee, ShiftType shiftType) {
+	public Shift(int id, Date date, String description, Integer employeeId, ShiftType shiftType) {
 		super();
 		this.id = id;
 		this.date = date;
 		this.description = description;
-		this.employee = employee;
+		this.employeeId = employeeId;
+		//this.employee = employee;
 		this.shiftType = shiftType;
 	}
 
@@ -66,13 +69,23 @@ public class Shift implements Serializable{
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+	
+//
+//	public Employee getEmployee() {
+//		return employee;
+//	}
+//
+//	public void setEmployee(Employee employee) {
+//		this.employee = employee;
+//	}
 
-	public Employee getEmployee() {
-		return employee;
+	public Integer getEmployeeId() {
+		return employeeId;
 	}
 
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
+	public void setEmployeeId(Integer employeeId) {
+		this.employeeId = employeeId;
 	}
 
 	public ShiftType getShiftType() {
@@ -88,7 +101,6 @@ public class Shift implements Serializable{
 		return "Shift id= " + id + 
 				", date= " + date + 
 				", description= " + description + 
-				", employee= " + employee +
 				", shiftType= " + shiftType;
 	}
 	

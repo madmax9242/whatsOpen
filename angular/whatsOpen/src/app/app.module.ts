@@ -12,7 +12,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-
 import { ScheduleListComponent } from './components/schedule-list/schedule-list.component';
 import { EmployeeInfoComponent } from './components/employee-info/employee-info.component';
 import { RegisterComponent } from './components/register/register.component';
