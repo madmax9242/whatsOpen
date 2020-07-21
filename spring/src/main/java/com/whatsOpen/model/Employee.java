@@ -1,6 +1,8 @@
 package com.whatsOpen.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -8,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -27,11 +31,11 @@ public class Employee implements Serializable{
 	private String email;
 	private String password;
 	
-	@OneToOne(fetch = FetchType.LAZY, cascade =  CascadeType.ALL, mappedBy = "employee")
-	private EmployeeSchedule schedule;
-	
-//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "employee",cascade = CascadeType.ALL)
-//	@JoinColumn(name="employee_id", nullable = true)
+//	@OneToOne(fetch = FetchType.LAZY, cascade =  CascadeType.ALL, mappedBy = "employee")
+//	private EmployeeSchedule schedule;
+//	
+//	@OneToMany
+//	@JoinColumn(name="employeeId")
 //	private List<Shift> shift = new ArrayList<Shift>();
 	
 	public Employee() {}
@@ -76,13 +80,21 @@ public class Employee implements Serializable{
 		this.password = password;
 	}
 
-	public EmployeeSchedule getSchedule() {
-		return schedule;
-	}
-
-	public void setSchedule(EmployeeSchedule schedule) {
-		this.schedule = schedule;
-	}
+//	public EmployeeSchedule getSchedule() {
+//		return schedule;
+//	}
+//
+//	public void setSchedule(EmployeeSchedule schedule) {
+//		this.schedule = schedule;
+//	}
+//
+//	public List<Shift> getShift() {
+//		return shift;
+//	}
+//
+//	public void setShift(List<Shift> shift) {
+//		this.shift = shift;
+//	}
 
 	@Override
 	public String toString() {
@@ -90,8 +102,7 @@ public class Employee implements Serializable{
 				", firstName=" + firstName + 
 				", lastName=" + lastName + 
 				", email=" + email +
-				", password=" + password + 
-				", schedule=" + schedule;
+				", password=" + password;
 	}
 
 }
