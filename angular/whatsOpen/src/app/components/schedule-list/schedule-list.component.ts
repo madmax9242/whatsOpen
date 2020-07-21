@@ -7,8 +7,6 @@ import { Employee } from '../../classes/employee';
 import { EmployeeSchedule } from "../../classes/employee-schedule";
 import { EmployeeScheduleService } from "../../services/employee-schedule.service"
 
-// Fixed data, based on Employee class
-
 // id: number;
 //     date: string;
 //     description: string;

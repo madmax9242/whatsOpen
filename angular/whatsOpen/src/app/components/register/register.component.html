@@ -1,0 +1,60 @@
+<div class="container-fluid">
+	<div class="row no-gutter">
+		<!-- LEFT HALF -->
+		<div class="col-md-6 d-none d-md-flex bg-image"></div>
+
+		<!-- RIGHT HALF -->
+		<div class="col-md-6 bg-light">
+			<div class="register d-flex align-items-center">
+
+				<!-- REGISTER-->
+				<div class="container">
+					<div class="row">
+						<div class="col-8 mx-auto">
+							<p class="display-4">Register</p>
+							<form (ngSubmit)="register()" #thisForm="ngForm">
+								<!-- INPUT FIELDS -->
+								<div class="form-group">
+									<input [(ngModel)]="emp.email" #email="ngModel" name="inputEmail" id="inputEmail" type="email" placeholder="Email address" class="form-control rounded-pill border-0 shadow px-4" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" required>
+								</div>
+								<div class="form-group">
+									<input [(ngModel)]="emp.password" #password="ngModel" name="inputPassword" id="inputPassword" type="password" placeholder="Password" class="form-control rounded-pill border-0 shadow px-4" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+								</div>
+								<div class="form-group">
+									<input [(ngModel)]="emp.firstName" #firstName="ngModel" name="inputFirstName" id="inputFirstName" type="text" placeholder="First name" class="form-control rounded-pill border-0 shadow px-4" required>
+								</div>
+								<div class="form-group">
+									<input [(ngModel)]="emp.lastName" #lastName="ngModel" name="inputLastName" id="inputLastName" type="text" placeholder="Last name" class="form-control rounded-pill border-0 shadow px-4" required>
+								</div>
+
+								<!-- VALIDATORS -->
+								<div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-warning rounded-pill border-0 shadow m-1 p-1 text-center text-muted">
+									<div *ngIf="email.errors?.required">Email is required.</div>
+									<div *ngIf="email.errors?.pattern">Email must be in [abc@def.com] format.</div>
+								</div>
+								<div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-warning rounded-pill border-0 shadow m-1 p-1 text-center text-muted">
+									<div *ngIf="password.errors?.required">Password is required.</div>
+									<div *ngIf="password.errors?.pattern">Password must be at least 8 characters long with at least one uppercase, one lowercase and one number.</div>
+								</div>
+								<div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-warning rounded-pill border-0 shadow m-1 p-1 text-center text-muted">
+									<div *ngIf="firstName.errors?.required">First name is required.</div>
+								</div>
+								<div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-warning rounded-pill border-0 shadow m-1 p-1 text-center text-muted">
+									<div *ngIf="lastName.errors?.required">Last name is required</div>
+								</div>
+
+								<!-- BUTTONS -->
+								<button class="btn btn-info btn-block text-uppercase rounded-pill border-0 shadow mt-4" type="submit" [disabled]="!thisForm.valid">Sign Up</button>
+
+								<!-- ROUTING -->
+								<div class="text-center justify-content-between mt-4">
+									Have an account? <a [routerLink]="['/login']" routerLinkActive="router-link-active" class="font-italic text-muted">Login</a>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
