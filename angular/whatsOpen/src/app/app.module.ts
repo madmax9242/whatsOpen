@@ -8,17 +8,23 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { HttpClient } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 import { ScheduleListComponent } from './components/schedule-list/schedule-list.component';
 import { EmployeeInfoComponent } from './components/employee-info/employee-info.component';
-import { AppRoutingModule } from './app-routing.module';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		ScheduleListComponent,
 		EmployeeInfoComponent,
+		RegisterComponent,
+		LoginComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -30,7 +36,8 @@ import { AppRoutingModule } from './app-routing.module';
 		MatFormFieldModule,
 		MatInputModule,
 		AppRoutingModule,
-		HttpClient,
+		HttpClientModule,
+		FormsModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent]
