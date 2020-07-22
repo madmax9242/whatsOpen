@@ -19,28 +19,24 @@ export class LoginComponent implements OnInit {
 	}
 
 	login() {
-		console.log("Login pressed.");
 		this.empService.getEmployeeByEmail(this.emp).subscribe(data => {
-			
+			console.log("Login successful.");
 			console.log(data);
 			if (data) {
 				this.returnEmp = data;
 				if (this.returnEmp.password == this.emp.password) {
 					window.location.assign("/schedule-list")
+				} else {
+					alert("Incorrect password!");
 				}
-				else {
-					alert("Incorrect password");
-				}
+			} else {
+				alert("No account found!");
 			}
-			else {
-				alert("No account found");
-			}
-			
+
 			sessionStorage.setItem("employeeId", this.emp.id + "");
-			
 
 			// Route
 			//window.location.assign("/profile")
-	});
+		});
 	}
 }
