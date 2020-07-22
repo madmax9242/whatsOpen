@@ -14,7 +14,10 @@ public interface EmployeeService {
 	public List<Employee> findAllEmployees();
 		
 	//GET BY ID
-	public Employee findEmployeenById(Integer id);
+	public Employee findEmployeeById(Integer id);
+	
+	//GET BY EMAIL
+	public Employee findEmployeeByEmail(String email);
 		
 	//UPDATE
 	public Employee updateEmployee(Employee e);

@@ -3,17 +3,13 @@ package com.whatsOpen.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 
 import com.whatsOpen.model.Employee;
 import com.whatsOpen.service.EmployeeService;
 
+@CrossOrigin
 @RestController
 public class EmployeeController {
 	
@@ -29,7 +25,12 @@ public class EmployeeController {
 	//Find employee by Id
 	@GetMapping("/employee/{id}")
 	public Employee findEmployeeById(@PathVariable Integer id) {
-		return es.findEmployeenById(id);
+		return es.findEmployeeById(id);
+	}
+	
+	@PostMapping("/employee/email")
+	public Employee findEmployeeByEmail(@RequestBody Employee emp) {
+		return es.findEmployeeByEmail(emp.getEmail());
 	}
 	
 	//Find all employees
