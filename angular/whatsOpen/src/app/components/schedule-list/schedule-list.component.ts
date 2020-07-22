@@ -8,10 +8,10 @@ import { EmployeeSchedule } from "../../classes/employee-schedule";
 import { EmployeeScheduleService } from "../../services/employee-schedule.service"
 
 // id: number;
-//     date: string;
-//     description: string;
-//     shiftType: string;
-//     employee: Employee;
+// date: string;
+// description: string;
+// shiftType: string;
+// employee: Employee;
 const SCHEDULE_DATA: EmployeeSchedule[] = [];
 
 @Component({

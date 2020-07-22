@@ -18,17 +18,13 @@ export class RegisterComponent implements OnInit {
 	}
 
 	register() {
-		console.log("Register pressed.");
-
 		this.empService.addEmployee(this.emp).subscribe(data => {
-				console.log("Registration successful");
-				console.log(data);
-				sessionStorage.setItem("employeeId", this.emp.id + "");
-				
+			console.log("Registration successful.");
+			console.log(data);
+			sessionStorage.setItem("employeeId", this.emp.id + "");
 
-				// Route
-				//window.location.assign("/profile")
+			// Route
+			//window.location.assign("/profile")
 		});
-	
 	}
 }

@@ -5,7 +5,6 @@ import { MatSort } from '@angular/material/sort';
 
 import { Employee } from '../../classes/employee';
 
-// Fixed data, based on Employee class
 const EMP_DATA: Employee[] = [
 	{ id: 101, firstName: "John", lastName: "Doe", email: "john@doe.com", password: "abc123", employeeScheduleId: 1001 },
 	{ id: 102, firstName: "Ewok", lastName: "Spacebear", email: "ewok@test.com", password: "c3po", employeeScheduleId: 1002 },
