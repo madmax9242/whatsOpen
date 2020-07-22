@@ -26,8 +26,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public Employee findEmployeenById(Integer id) {
+	public Employee findEmployeeById(Integer id) {
 		return eDao.findById(id).get();
+	}
+	
+	@Override
+	public Employee findEmployeeByEmail(String email) {
+		return eDao.findByEmail(email);
 	}
 
 	@Override
@@ -40,5 +45,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		eDao.deleteById(id);
 		
 	}
+
+
 
 }

@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class EmployeeService {
 
-	baseUrl: string = 'http://localhost:4200/';
+	baseUrl: string = 'http://localhost:8989/';
 
 	constructor(private http: HttpClient) { }
 
@@ -18,6 +18,10 @@ export class EmployeeService {
 
 	getEmployeeById(id: number): Observable<Employee> {
 		return this.http.get<Employee>(this.baseUrl + 'employee/' + id);
+	}
+
+	getEmployeeByEmail(employee: Employee): Observable<Employee> {
+		return this.http.post<Employee>(this.baseUrl + "employee/email", employee);
 	}
 
 	getAllEmployees(): Observable<Employee[]> {

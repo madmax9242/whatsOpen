@@ -7,5 +7,6 @@ import com.whatsOpen.model.Employee;
 
 @Repository
 public interface EmployeeDao extends JpaRepository<Employee, Integer> {
+	public Employee findByEmail(String email);
 
 }
