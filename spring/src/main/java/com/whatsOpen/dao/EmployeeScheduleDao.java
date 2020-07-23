@@ -7,5 +7,7 @@ import com.whatsOpen.model.EmployeeSchedule;
 
 @Repository
 public interface EmployeeScheduleDao extends JpaRepository<EmployeeSchedule, Integer> {
+	
+	public EmployeeSchedule findByEmployeeId(Integer id);
 
 }
