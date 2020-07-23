@@ -1,11 +1,10 @@
 package com.whatsOpen.model;
 
 import java.io.Serializable;
-import java.util.Date;
+//import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @SequenceGenerator(name ="shift_seq", initialValue = 401)
@@ -16,10 +15,11 @@ public class Shift implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "shift_seq")
-	private int id;
+	private Integer id;
 	
-	private Date date;
+	private Date shiftDate;
 	private String description;
+	private Integer employeeId;
 	
 //	@ManyToOne
 //    @JoinColumn(name="employee_id", insertable = false, updatable = false)
@@ -27,39 +27,32 @@ public class Shift implements Serializable{
 //	private Employee employee;
 //    @OnDelete(action = OnDeleteAction.CASCADE)
 	
-	private Integer employeeId;
 	
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn()
-	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-	private ShiftType shiftType;
 	
 	public Shift() {}
 
-	public Shift(int id, Date date, String description, Integer employeeId, ShiftType shiftType) {
+	public Shift(Integer id, Date date, String description, Integer employeeId) {
 		super();
 		this.id = id;
-		this.date = date;
+		this.shiftDate = date;
 		this.description = description;
 		this.employeeId = employeeId;
-		//this.employee = employee;
-		this.shiftType = shiftType;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
 	public Date getDate() {
-		return date;
+		return shiftDate;
 	}
 
 	public void setDate(Date date) {
-		this.date = date;
+		this.shiftDate = date;
 	}
 
 	public String getDescription() {
@@ -88,20 +81,11 @@ public class Shift implements Serializable{
 		this.employeeId = employeeId;
 	}
 
-	public ShiftType getShiftType() {
-		return shiftType;
-	}
-
-	public void setShiftType(ShiftType shiftType) {
-		this.shiftType = shiftType;
-	}
-
 	@Override
 	public String toString() {
 		return "Shift id= " + id + 
-				", date= " + date + 
-				", description= " + description + 
-				", shiftType= " + shiftType;
+				", date= " + shiftDate + 
+				", description= " + description;
 	}
 	
 }

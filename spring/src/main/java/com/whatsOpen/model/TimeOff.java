@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+
+
 @Entity
 @SequenceGenerator(name = "timeOff_seq", initialValue = 201)
 @Table( name = "tb_time_off")
@@ -16,109 +18,83 @@ public class TimeOff{
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "timeOff_seq")
 	private Integer id;
 	private Integer employeeId;
-	private boolean monday;
-	private boolean tuesday;
-	private boolean wednesday;
-	private boolean thursday;
-	private boolean friday;
-	private boolean saturday;
-	private boolean sunday;
+	private String startDate;
+	private String endDate;
+	private String reason;
+	
 	
 	public TimeOff() {
 		
 	}
-	
-	public TimeOff(Integer employeeId, boolean monday, boolean tuesday, boolean wednesday, boolean thursday, boolean friday,
-			boolean saturday, boolean sunday) {
+
+
+	public TimeOff(Integer id, Integer employeeId, String startDate, String endDate, String reason) {
+		super();
+		this.id = id;
 		this.employeeId = employeeId;
-		this.monday = monday;
-		this.tuesday = tuesday;
-		this.wednesday = wednesday;
-		this.thursday = thursday;
-		this.friday = friday;
-		this.saturday = saturday;
-		this.sunday = sunday;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.reason = reason;
 	}
-	
-	
+
 
 	public Integer getId() {
 		return id;
 	}
 
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 
 	public Integer getEmployeeId() {
 		return employeeId;
 	}
 
+
 	public void setEmployeeId(Integer employeeId) {
 		this.employeeId = employeeId;
 	}
 
-	public boolean isMonday() {
-		return monday;
+
+	public String getStartDate() {
+		return startDate;
 	}
 
-	public void setMonday(boolean monday) {
-		this.monday = monday;
+
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
 	}
 
-	public boolean isTuesday() {
-		return tuesday;
+
+	public String getEndDate() {
+		return endDate;
 	}
 
-	public void setTuesday(boolean tuesday) {
-		this.tuesday = tuesday;
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
 	}
 
-	public boolean isWednesday() {
-		return wednesday;
+
+	public String getReason() {
+		return reason;
 	}
 
-	public void setWednesday(boolean wednesday) {
-		this.wednesday = wednesday;
+
+	public void setReason(String reason) {
+		this.reason = reason;
 	}
 
-	public boolean isThursday() {
-		return thursday;
-	}
-
-	public void setThursday(boolean thursday) {
-		this.thursday = thursday;
-	}
-
-	public boolean isFriday() {
-		return friday;
-	}
-
-	public void setFriday(boolean friday) {
-		this.friday = friday;
-	}
-
-	public boolean isSaturday() {
-		return saturday;
-	}
-
-	public void setSaturday(boolean saturday) {
-		this.saturday = saturday;
-	}
-
-	public boolean isSunday() {
-		return sunday;
-	}
-
-	public void setSunday(boolean sunday) {
-		this.sunday = sunday;
-	}
 
 	@Override
 	public String toString() {
-		return "TimeOff [monday=" + monday + ", tuesday=" + tuesday + ", wednesday=" + wednesday + ", thursday="
-				+ thursday + ", friday=" + friday + ", saturday=" + saturday + ", sunday=" + sunday + "]";
+		return "TimeOff [id=" + id + ", employeeId=" + employeeId + ", startDate=" + startDate + ", endDate=" + endDate
+				+ ", reason=" + reason + "]";
 	}
+	
+	
 	
 	
 	

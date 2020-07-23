@@ -13,6 +13,9 @@ public interface TimeOffService {
 	//Get by Id
 	public TimeOff getAllRequestsById(Integer id);
 	
+	//Get by EmployeeId
+	public TimeOff getRequestByEmployeeId(Integer id);
+	
 	//Get All
 	public List<TimeOff> getallTimeOff();
 	

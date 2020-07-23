@@ -27,10 +27,11 @@ public class EmployeeSchedule{
 	private String friday;
 	private String saturday;
 	private String sunday;
+	private Integer employeeId;
 	
-	@OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "employee_id", nullable = false)
-	private Employee employee;
+//	@OneToOne(fetch = FetchType.LAZY, optional = false)
+//    @JoinColumn(name = "employee_id", nullable = false)
+//	private Employee employee;
 	
 	public EmployeeSchedule() {}
 
@@ -98,12 +99,22 @@ public class EmployeeSchedule{
 		this.sunday = sunday;
 	}
 
-	public Employee getEmployee() {
-		return employee;
+	public Integer getEmployeeId() {
+		return employeeId;
 	}
 
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
+	public void setEmployeeId(Integer employeeId) {
+		this.employeeId = employeeId;
 	}
+	
+	
+
+//	public Employee getEmployee() {
+//		return employee;
+//	}
+//
+//	public void setEmployee(Employee employee) {
+//		this.employee = employee;
+//	}
 
 }

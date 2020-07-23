@@ -24,6 +24,11 @@ public class TimeOffServiceImpl implements TimeOffService {
 	public TimeOff getAllRequestsById(Integer id) {
 		return timeOffDao.findById(id).get();
 	}
+	
+	@Override
+	public TimeOff getRequestByEmployeeId(Integer id) {
+		return timeOffDao.findByEmployeeId(id);
+	}
 
 	@Override
 	public List<TimeOff> getallTimeOff() {
@@ -40,7 +45,4 @@ public class TimeOffServiceImpl implements TimeOffService {
 		timeOffDao.deleteById(id);
 		
 	}
-	
-	
-
 }

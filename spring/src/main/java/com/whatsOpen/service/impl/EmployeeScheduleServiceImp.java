@@ -16,12 +16,17 @@ public class EmployeeScheduleServiceImp implements EmployeeScheduleService {
 	private EmployeeScheduleDao esd;
 
 	@Override
-	public EmployeeSchedule findEmployeeScheduleById(Integer id) {
+	public EmployeeSchedule findScheduleById(Integer id) {
 		return esd.findById(id).get();
+	}
+	
+	@Override
+	public EmployeeSchedule findScheduleByEmployeeId(Integer id) {
+		return esd.findByEmployeeId(id);
 	}
 
 	@Override
-	public List<EmployeeSchedule> findAllEmployeeSchedules() {
+	public List<EmployeeSchedule> findAllSchedules() {
 		return esd.findAll();
 	}
 
@@ -39,5 +44,7 @@ public class EmployeeScheduleServiceImp implements EmployeeScheduleService {
 	public void deleteScheduleById(Integer id) {
 		esd.deleteById(id);
 	}
+
+
 
 }

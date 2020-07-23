@@ -1,3 +1,4 @@
+
 package com.whatsOpen.model;
 
 import javax.persistence.*;

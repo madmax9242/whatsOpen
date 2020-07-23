@@ -11,13 +11,14 @@ import com.whatsOpen.service.EmployeeService;
 
 @CrossOrigin
 @RestController
+@RequestMapping("/api")
 public class EmployeeController {
 	
 	@Autowired
 	EmployeeService es;
 	
 	//Create new employee
-	@PostMapping("/employee/new")
+	@PostMapping("/employee")
 	public Employee createEmployee(@RequestBody Employee emp ) {
 		return es.createEmployee(emp);
 	}
@@ -28,13 +29,14 @@ public class EmployeeController {
 		return es.findEmployeeById(id);
 	}
 	
+	//Used a post to keep email of employee protected inside the employee object
 	@PostMapping("/employee/email")
 	public Employee findEmployeeByEmail(@RequestBody Employee emp) {
 		return es.findEmployeeByEmail(emp.getEmail());
 	}
 	
 	//Find all employees
-	@GetMapping("/employee/all")
+	@GetMapping("/employees")
 	public List<Employee> findAllEmployees() {
 		return es.findAllEmployees();
 	}
