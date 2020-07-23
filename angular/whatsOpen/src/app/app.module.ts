@@ -6,11 +6,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 
 import { MatInputModule } from '@angular/material/input';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -19,7 +21,10 @@ import { ScheduleListComponent } from './components/schedule-list/schedule-list.
 import { EmployeeInfoComponent } from './components/employee-info/employee-info.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { EventDialogComponent } from './components/event-dialog/event-dialog.component';
 import { TimeOffRequestComponent } from './components//time-off-request/time-off-request.component';
+
 
 @NgModule({
 	declarations: [
@@ -28,6 +33,8 @@ import { TimeOffRequestComponent } from './components//time-off-request/time-off
 		EmployeeInfoComponent,
 		RegisterComponent,
 		LoginComponent,
+		CalendarComponent,
+		EventDialogComponent,
 		TimeOffRequestComponent,
 	],
 	imports: [
@@ -37,7 +44,9 @@ import { TimeOffRequestComponent } from './components//time-off-request/time-off
 		MatTableModule,
 		MatPaginatorModule,
 		MatSortModule,
+		MatDialogModule,
 		MatFormFieldModule,
+		MatGridListModule,
 		MatDatepickerModule,
 		MatNativeDateModule,
 		MatInputModule,
