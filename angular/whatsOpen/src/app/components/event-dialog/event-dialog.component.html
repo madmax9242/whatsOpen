@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Request {{data.title}}</h1>
+<div mat-dialog-content>
+    <p>What would be the date?</p>
+    <p>{{data.date | date: 'longDate'}}</p>
+</div>
+<div mat-dialog-actions class="mb-2">
+    <button mat-button (click)="onNoClick()" class="col btn btn-outline-danger">No Thanks</button>
+    <button mat-button [mat-dialog-close]="data.date" cdkFocusInitial class="col btn btn-outline-success">Send
+        Request</button>
+</div>

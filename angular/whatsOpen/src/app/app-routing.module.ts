@@ -6,6 +6,8 @@ import { ScheduleListComponent } from './components/schedule-list/schedule-list.
 import { EmployeeInfoComponent } from './components/employee-info/employee-info.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+
+import { CalendarComponent } from './components/calendar/calendar.component';
 import { TimeOffRequestComponent } from './components/time-off-request/time-off-request.component';
 
 const routes: Routes = [
@@ -14,7 +16,9 @@ const routes: Routes = [
 	{ path: 'login', component: LoginComponent },
 	{ path: 'employee-info', component: EmployeeInfoComponent },
 	{ path: 'schedule-list', component: ScheduleListComponent },
-	{ path: 'time-off-request', component: TimeOffRequestComponent},
+	{ path: 'calendar', component: CalendarComponent },
+	{ path: 'time-off-request', component: TimeOffRequestComponent },
+
 ];
 
 @NgModule({
