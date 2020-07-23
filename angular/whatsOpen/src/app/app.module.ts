@@ -7,6 +7,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 import { MatInputModule } from '@angular/material/input';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -35,12 +38,16 @@ import { TimeOffRequestComponent } from './components//time-off-request/time-off
 		MatPaginatorModule,
 		MatSortModule,
 		MatFormFieldModule,
+		MatDatepickerModule,
+		MatNativeDateModule,
 		MatInputModule,
 		AppRoutingModule,
 		HttpClientModule,
 		FormsModule,
 	],
-	providers: [],
+	providers: [
+		MatDatepickerModule,
+	],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }
