@@ -16,6 +16,7 @@ import { ScheduleListComponent } from './components/schedule-list/schedule-list.
 import { EmployeeInfoComponent } from './components/employee-info/employee-info.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { TimeOffRequestComponent } from './components//time-off-request/time-off-request.component';
 
 @NgModule({
 	declarations: [
@@ -24,6 +25,7 @@ import { LoginComponent } from './components/login/login.component';
 		EmployeeInfoComponent,
 		RegisterComponent,
 		LoginComponent,
+		TimeOffRequestComponent,
 	],
 	imports: [
 		BrowserModule,
