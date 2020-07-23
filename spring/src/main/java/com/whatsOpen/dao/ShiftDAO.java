@@ -10,6 +10,6 @@ import com.whatsOpen.model.Shift;
 @Repository
 public interface ShiftDAO extends JpaRepository<Shift, Integer>{
 
-	public abstract List<Shift> findByEmployeeId(int id);
+	public abstract List<Shift> findByEmployeeId(Integer id);
 	
 }
