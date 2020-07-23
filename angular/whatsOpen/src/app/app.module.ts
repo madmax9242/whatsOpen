@@ -8,6 +8,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +23,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { EventDialogComponent } from './components/event-dialog/event-dialog.component';
+import { TimeOffRequestComponent } from './components//time-off-request/time-off-request.component';
+
 
 @NgModule({
 	declarations: [
@@ -30,6 +35,7 @@ import { EventDialogComponent } from './components/event-dialog/event-dialog.com
 		LoginComponent,
 		CalendarComponent,
 		EventDialogComponent,
+		TimeOffRequestComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -41,12 +47,16 @@ import { EventDialogComponent } from './components/event-dialog/event-dialog.com
 		MatDialogModule,
 		MatFormFieldModule,
 		MatGridListModule,
+		MatDatepickerModule,
+		MatNativeDateModule,
 		MatInputModule,
 		AppRoutingModule,
 		HttpClientModule,
 		FormsModule,
 	],
-	providers: [],
+	providers: [
+		MatDatepickerModule,
+	],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

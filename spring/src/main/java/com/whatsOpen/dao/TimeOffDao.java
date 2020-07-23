@@ -7,5 +7,6 @@ import com.whatsOpen.model.TimeOff;
 
 @Repository
 public interface TimeOffDao extends JpaRepository<TimeOff, Integer>  {
+	public TimeOff findByEmployeeId(Integer id);
 
 }

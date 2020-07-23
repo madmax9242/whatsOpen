@@ -9,9 +9,11 @@ import com.whatsOpen.model.EmployeeSchedule;
 @Service
 public interface EmployeeScheduleService {
 	
-	public EmployeeSchedule findEmployeeScheduleById(Integer id);
+	public EmployeeSchedule findScheduleById(Integer id);
 	
-	public List<EmployeeSchedule> findAllEmployeeSchedules();
+	public EmployeeSchedule findScheduleByEmployeeId(Integer id);
+	
+	public List<EmployeeSchedule> findAllSchedules();
 	
 	public EmployeeSchedule postSchedule(EmployeeSchedule es);
 	
