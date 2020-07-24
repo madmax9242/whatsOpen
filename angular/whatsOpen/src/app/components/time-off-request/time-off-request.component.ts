@@ -19,4 +19,17 @@ export class TimeOffRequestComponent implements OnInit {
     this.timeOff = new TimeOffRequest();
   }
 
+  submitRequest(): void {
+    this.timeOffService.addTimeOffRequest(this.timeOff).subscribe(data => {
+      console.log(data);
+      if(data) {
+        alert("Request Sent");
+      }
+      else {
+        alert("Error. Please try again");
+      }
+      
+    })
+  }
+
 }

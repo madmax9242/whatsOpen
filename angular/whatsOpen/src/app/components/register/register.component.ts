@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
 		this.emp = new Employee();
 	}
 
-	register() {
+	register(): void {
 		this.empService.addEmployee(this.emp).subscribe(data => {
 			console.log("Registration successful.");
 			console.log(data);

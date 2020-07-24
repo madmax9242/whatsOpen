@@ -8,12 +8,12 @@ import { Observable } from 'rxjs';
 })
 export class EmployeeService {
 
-	baseUrl: string = 'http://localhost:8989/';
+	baseUrl: string = 'http://localhost:8989/api/';
 
 	constructor(private http: HttpClient) { }
 
 	addEmployee(employee: Employee): Observable<Employee> {
-		return this.http.post<Employee>(this.baseUrl + "employee/new", employee);
+		return this.http.post<Employee>(this.baseUrl + "employee/", employee);
 	}
 
 	getEmployeeById(id: number): Observable<Employee> {
@@ -25,7 +25,7 @@ export class EmployeeService {
 	}
 
 	getAllEmployees(): Observable<Employee[]> {
-		return this.http.get<Employee[]>(this.baseUrl + "employee/all");
+		return this.http.get<Employee[]>(this.baseUrl + "employees");
 	}
 
 	updateEmployee(employee: Employee): Observable<Employee> {
