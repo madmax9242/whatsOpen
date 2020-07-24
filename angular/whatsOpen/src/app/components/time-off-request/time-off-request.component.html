@@ -1,7 +1,8 @@
 <!-- Placeholder for datePicker form -->
 <h1>Time Off Request</h1>
 <br>
-<form>
+    
+    <form #timeOffForm = "ngForm">
     <div class="form-group">
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Choose a start date</mat-label>
@@ -24,8 +25,8 @@
         </mat-form-field>
       </div>
     <div class="form-group">
-      <label for="timeOffReaseon">Reason</label>
+      <label for="timeOffReason">Reason</label>
       <input type="text" class="form-control" id="timeOffReason" placeholder="Reason">
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button (click)="submitRequest()"  type="submit" class="btn btn-primary">Submit</button>
   </form>
