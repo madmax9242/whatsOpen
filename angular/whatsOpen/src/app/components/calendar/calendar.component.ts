@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DatePipe } from "@angular/common";
 import { MatDialog } from '@angular/material/dialog';
 import { EventDialogComponent } from '../event-dialog/event-dialog.component';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-calendar',
@@ -13,6 +14,11 @@ export class CalendarComponent implements OnInit {
 
   month: Date[];
   monthHeader: string[] = [];
+
+  range = new FormGroup({
+    start: new FormControl(),
+    end: new FormControl()
+  });
 
   constructor(private datePipe: DatePipe, public dialog: MatDialog) {
     this.month = this.getDaysInMonth(6, 2020);
