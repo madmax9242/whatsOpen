@@ -10,9 +10,7 @@ import { AuthServiceService } from './services/auth-service.service';
 export class AppComponent {
 	title = 'WhatsOpen';
 
-	constructor(private authService: AuthServiceService) {
-
-	}
+	constructor(private authService: AuthServiceService) { }
 
 	logout() {
 		this.authService.logout();

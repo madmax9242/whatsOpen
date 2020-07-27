@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/classes/employee';
 import { EmployeeService } from '../../services/employee.service'
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-register',
@@ -11,7 +12,7 @@ export class RegisterComponent implements OnInit {
 
 	emp: Employee;
 
-	constructor(private empService: EmployeeService) { }
+	constructor(private empService: EmployeeService, private router: Router) { }
 
 	ngOnInit(): void {
 		this.emp = new Employee();
@@ -23,8 +24,8 @@ export class RegisterComponent implements OnInit {
 			console.log(data);
 			sessionStorage.setItem("employeeId", this.emp.id + "");
 
-			// Route
-			//window.location.assign("/profile")
+			// Routes
+			this.router.navigate['/employee-info'];
 		});
 	}
 }

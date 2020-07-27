@@ -5,11 +5,11 @@ import { TimeOffRequest } from '../classes/time-off-request';
 
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class TimeOffService {
 
-  baseUrl: string = 'http://localhost:8989/api/';
+	baseUrl: string = 'http://localhost:8989/api/';
 
 	constructor(private http: HttpClient) { }
 
@@ -19,11 +19,11 @@ export class TimeOffService {
 
 	getTimeOffRequestById(id: number): Observable<TimeOffRequest> {
 		return this.http.get<TimeOffRequest>(this.baseUrl + 'timeOffRequest/' + id);
-  }
-  
-  getTimeOffRequestByEmployeeId(empId: number): Observable<TimeOffRequest> {
-    return this.http.get<TimeOffRequest>(this.baseUrl + 'timeOffRequest' )
-  }
+	}
+
+	getTimeOffRequestByEmployeeId(empId: number): Observable<TimeOffRequest> {
+		return this.http.get<TimeOffRequest>(this.baseUrl + 'timeOffRequest')
+	}
 
 	getAllTimeOffRequests(): Observable<TimeOffRequest[]> {
 		return this.http.get<TimeOffRequest[]>(this.baseUrl + "timeOffRequests");
