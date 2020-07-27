@@ -2,11 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ScheduleListComponent } from './components/schedule-list/schedule-list.component';
-import { EmployeeInfoComponent } from './components/employee-info/employee-info.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
-
+import { EmployeeInfoComponent } from './components/employee-info/employee-info.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { TimeOffRequestComponent } from './components/time-off-request/time-off-request.component';
 import { AuthGuardGuard } from './services/auth-guard.guard';
@@ -17,10 +15,8 @@ const routes: Routes = [
 	{ path: 'register', component: RegisterComponent },
 	{ path: 'login', component: LoginComponent },
 	{ path: 'employee-info', component: EmployeeInfoComponent, canActivate: [AuthGuardGuard] },
-	{ path: 'schedule-list', component: ScheduleListComponent },
 	{ path: 'calendar', component: CalendarComponent, canActivate: [AuthGuardGuard] },
 	{ path: 'time-off-request', component: TimeOffRequestComponent, canActivate: [AuthGuardGuard] },
-
 ];
 
 @NgModule({
