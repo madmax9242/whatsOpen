@@ -9,15 +9,17 @@ import { LoginComponent } from './components/login/login.component';
 
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { TimeOffRequestComponent } from './components/time-off-request/time-off-request.component';
+import { AuthGuardGuard } from './services/auth-guard.guard';
+import { AuthServiceService } from './services/auth-service.service';
 
 const routes: Routes = [
 	{ path: '', component: LoginComponent },
 	{ path: 'register', component: RegisterComponent },
 	{ path: 'login', component: LoginComponent },
-	{ path: 'employee-info', component: EmployeeInfoComponent },
+	{ path: 'employee-info', component: EmployeeInfoComponent, canActivate: [AuthGuardGuard] },
 	{ path: 'schedule-list', component: ScheduleListComponent },
-	{ path: 'calendar', component: CalendarComponent },
-	{ path: 'time-off-request', component: TimeOffRequestComponent },
+	{ path: 'calendar', component: CalendarComponent, canActivate: [AuthGuardGuard] },
+	{ path: 'time-off-request', component: TimeOffRequestComponent, canActivate: [AuthGuardGuard] },
 
 ];
 
