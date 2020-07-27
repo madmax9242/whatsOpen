@@ -27,6 +27,8 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { EventDialogComponent } from './components/event-dialog/event-dialog.component';
 import { TimeOffRequestComponent } from './components//time-off-request/time-off-request.component';
 
+import { StoreModule } from '@ngrx/store';
+import { EmployeeReducer } from './employee.reducer';
 
 @NgModule({
 	declarations: [
@@ -56,6 +58,7 @@ import { TimeOffRequestComponent } from './components//time-off-request/time-off
 		HttpClientModule,
 		FormsModule,
 		ReactiveFormsModule,
+		StoreModule.forRoot({ employees: EmployeeReducer }),
 	],
 	providers: [
 		MatDatepickerModule,

@@ -26,16 +26,19 @@ export class TimeOffRequestComponent implements OnInit {
 
   submitRequest(): void {
     console.log(this.formTimeOff.value);
-    // this.timeOffService.addTimeOffRequest(this.timeOff).subscribe(data => {
-    //   console.log(data);
-    //   if(data) {
-    //     alert("Request Sent");
-    //   }
-    //   else {
-    //     alert("Error. Please try again");
-    //   }
+    this.timeOff.startDate = this.formTimeOff.value.start;
+    this.timeOff.endDate = this.formTimeOff.value.end;
+    this.timeOff.reason = this.formTimeOff.value.reason;
+    this.timeOffService.addTimeOffRequest(this.timeOff).subscribe(data => {
+      console.log(data);
+      if(data) {
+        alert("Request Sent");
+      }
+      else {
+        alert("Error. Please try again");
+      }
 
-    // })
+    })
   }
 
 }
