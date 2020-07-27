@@ -22,6 +22,7 @@ export class TimeOffRequestComponent implements OnInit {
 
   ngOnInit(): void {
     this.timeOff = new TimeOffRequest();
+    console.log(sessionStorage.getItem("employeeId"));
   }
 
   submitRequest(): void {
