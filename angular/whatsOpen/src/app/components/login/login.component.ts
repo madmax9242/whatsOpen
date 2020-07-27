@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/classes/employee';
 import { EmployeeService } from '../../services/employee.service'
 import { AuthServiceService } from 'src/app/services/auth-service.service';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-login',
@@ -13,7 +14,9 @@ export class LoginComponent implements OnInit {
 	emp: Employee;
 	returnEmp: Employee;
 
-	constructor(private empService: EmployeeService, private authService: AuthServiceService) { }
+	constructor(private empService: EmployeeService, 
+		private authService: AuthServiceService,
+		private router: Router) { }
 
 	ngOnInit(): void {
 		this.emp = new Employee();
@@ -45,7 +48,7 @@ export class LoginComponent implements OnInit {
 				if (data) {
 					this.returnEmp = data;
 					if (this.returnEmp.password == this.emp.password) {
-						window.location.assign("/employee-info")
+						this.router.navigate(['/employee-info']);
 					} else {
 						alert("Incorrect password!");
 					}

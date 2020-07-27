@@ -27,7 +27,6 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { EventDialogComponent } from './components/event-dialog/event-dialog.component';
 import { TimeOffRequestComponent } from './components//time-off-request/time-off-request.component';
 
-
 @NgModule({
 	declarations: [
 		AppComponent,

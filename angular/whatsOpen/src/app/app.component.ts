@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthServiceService } from './services/auth-service.service';
 
 
 @Component({
@@ -8,4 +9,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 	title = 'WhatsOpen';
+
+	constructor(private authService: AuthServiceService) {
+
+	}
+
+	logout() {
+		this.authService.logout();
+	}
 }
