@@ -15,11 +15,6 @@ export class CalendarComponent implements OnInit {
   month: Date[];
   monthHeader: string[] = [];
 
-  range = new FormGroup({
-    start: new FormControl(),
-    end: new FormControl()
-  });
-
   constructor(private datePipe: DatePipe, public dialog: MatDialog) {
     this.month = this.getDaysInMonth(6, 2020);
   }
