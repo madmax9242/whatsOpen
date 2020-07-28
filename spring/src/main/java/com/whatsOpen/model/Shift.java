@@ -1,8 +1,8 @@
 package com.whatsOpen.model;
 
 import java.io.Serializable;
-//import java.util.Date;
-import java.sql.Date;
+import java.util.Date;
+//import java.sql.Date;
 
 import javax.persistence.*;
 
@@ -16,8 +16,8 @@ public class Shift implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "shift_seq")
 	private Integer id;
-	
-	private Date shiftDate;
+	private String shiftDate;
+	//private Date shiftDate;
 	private String description;
 	private Integer employeeId;
 	
@@ -31,7 +31,7 @@ public class Shift implements Serializable{
 	
 	public Shift() {}
 
-	public Shift(Integer id, Date date, String description, Integer employeeId) {
+	public Shift(Integer id, String date, String description, Integer employeeId) {
 		super();
 		this.id = id;
 		this.shiftDate = date;
@@ -47,16 +47,26 @@ public class Shift implements Serializable{
 		this.id = id;
 	}
 
-	public Date getDate() {
-		return shiftDate;
-	}
-
-	public void setDate(Date date) {
-		this.shiftDate = date;
-	}
+//	public Date getDate() {
+//		return shiftDate;
+//	}
+//
+//	public void setDate(Date date) {
+//		this.shiftDate = date;
+//	}
+	
+	
 
 	public String getDescription() {
 		return description;
+	}
+
+	public String getShiftDate() {
+		return shiftDate;
+	}
+
+	public void setShiftDate(String shiftDate) {
+		this.shiftDate = shiftDate;
 	}
 
 	public void setDescription(String description) {
