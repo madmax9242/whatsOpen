@@ -1,9 +1,38 @@
-<div class="container">
+<div class="container my-4">
 	<h1 class="display-4">Time Off Request</h1>
-	<p>{{currentDate</p>
+	<p style="color: goldenrod;">Current Date: {{currentDate}}</p>
 </div>
 
-<br>
+<hr>
+
+<div class="container my-4">
+	<form [formGroup]="formTimeOff">
+		<mat-form-field appearance="fill">
+			<mat-label>Enter a date range</mat-label>
+			<mat-date-range-input [rangePicker]="picker">
+				<input matStartDate formControlName="start" placeholder="Start date">
+				<input matEndDate formControlName="end" placeholder="End date">
+			</mat-date-range-input>
+			<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+			<mat-date-range-picker #picker></mat-date-range-picker>
+
+			<!-- VALIDATORS -->
+			<mat-error *ngIf="formTimeOff.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+			<mat-error *ngIf="formTimeOff.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+		</mat-form-field>
+
+		<p><strong>Selected Start Date:</strong> {{formTimeOff.value.start | date: 'longDate'}}</p>
+		<p><strong>Selected End Date:</strong> {{formTimeOff.value.end | date: 'longDate'}}</p>
+		<div class="form-group">
+			<label for="timeOffReason">Reason</label>
+			<input type="text" class="form-control" id="timeOffReason" placeholder="What's the reason for your request?" formControlName="reason">
+		</div>
+
+		<br>
+
+		<button (click)="submitRequest()" type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
 
 <!-- <form #timeOffForm = "ngForm">
     <div class="form-group">
@@ -33,28 +62,3 @@
     </div>
     <button (click)="submitRequest()"  type="submit" class="btn btn-primary">Submit</button>
   </form> -->
-
-<div class="container">
-	<form [formGroup]="formTimeOff">
-		<mat-form-field appearance="fill">
-			<mat-label>Enter a date range</mat-label>
-			<mat-date-range-input [rangePicker]="picker">
-				<input matStartDate formControlName="start" placeholder="Start date">
-				<input matEndDate formControlName="end" placeholder="End date">
-			</mat-date-range-input>
-			<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-			<mat-date-range-picker #picker></mat-date-range-picker>
-	
-			<mat-error *ngIf="formTimeOff.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
-			<mat-error *ngIf="formTimeOff.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
-		</mat-form-field>
-	
-		<p><strong>Selected Start Date:</strong> {{formTimeOff.value.start | date: 'longDate'}}</p>
-	<p><strong>Selected End Date:</strong> {{formTimeOff.value.end | date: 'longDate'}}</p>
-	<div class="form-group">
-		<label for="timeOffReason">Reason</label>
-		<input type="text" class="form-control" id="timeOffReason" placeholder="Reason" formControlName="reason">
-	</div>
-	<button (click)="submitRequest()" type="submit" class="btn btn-primary">Submit</button>
-	</form>
-</div>
