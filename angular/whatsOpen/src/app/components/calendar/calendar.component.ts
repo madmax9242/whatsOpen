@@ -51,7 +51,6 @@ export class CalendarComponent implements OnInit {
 			days.push(new Date(date));
 			date.setDate(date.getDate() + 1);
 		}
-		console.log(days);
 		for (let i = 0; i < 7; i++) {
 			this.monthHeader.push(this.datePipe.transform(days[i], 'EEEE').toString());
 		}
