@@ -14,3 +14,17 @@
 		</mat-grid-tile>
 	</mat-grid-list>
 </div>
+
+<!-- <mat-form-field appearance="fill">
+	<mat-label>Select an option</mat-label>
+	<mat-select [(ngModel)]="additive">
+	  <mat-option value="0">This Month</mat-option>
+	  <mat-option value="1">Next Month</mat-option>
+	</mat-select>
+  </mat-form-field> -->
+
+  <select id = "nextMonth" [(ngModel)] = "additive" (change)="this.month = this.getDaysInMonth();">
+	<option value = "0">This Month</option>
+	<option value = "1">Next Month</option>
+  </select>
+  <h1>You selected  {{additive}}</h1>	
