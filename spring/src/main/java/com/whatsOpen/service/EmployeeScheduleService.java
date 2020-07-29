@@ -1,24 +1,25 @@
 package com.whatsOpen.service;
 
-import java.util.List;
-
-import org.springframework.stereotype.Service;
-
 import com.whatsOpen.model.EmployeeSchedule;
 
-@Service
+import java.util.List;
+
 public interface EmployeeScheduleService {
-	
-	public EmployeeSchedule findScheduleById(Integer id);
-	
-	public EmployeeSchedule findScheduleByEmployeeId(Integer id);
-	
-	public List<EmployeeSchedule> findAllSchedules();
-	
+
+	// CREATE
 	public EmployeeSchedule postSchedule(EmployeeSchedule es);
-	
+
+	// READ
+	public List<EmployeeSchedule> findAllSchedules();
+
+	public EmployeeSchedule findScheduleById(Integer id);
+
+	public EmployeeSchedule findScheduleByEmployeeId(Integer id);
+
+	// UPDATE
 	public EmployeeSchedule updateSchedule(EmployeeSchedule es);
-	
+
+	// DELETE
 	public void deleteScheduleById(Integer id);
 
 }

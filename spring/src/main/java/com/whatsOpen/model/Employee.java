@@ -1,28 +1,15 @@
 package com.whatsOpen.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 
 @Entity
 @SequenceGenerator(name = "employee_seq", initialValue = 101)
 @Table(name = "tb_employee")
-public class Employee implements Serializable{
+public class Employee implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-		
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_seq")
 	private Integer id;
@@ -30,28 +17,26 @@ public class Employee implements Serializable{
 	private String lastName;
 	private String email;
 	private String password;
-	
+
 //	@OneToOne(fetch = FetchType.LAZY, cascade =  CascadeType.ALL, mappedBy = "employee")
 //	private EmployeeSchedule schedule;
 //	
 //	@OneToMany
 //	@JoinColumn(name="employeeId")
 //	private List<Shift> shift = new ArrayList<Shift>();
-	
+
 	public Employee() {
-		
+
 	}
 
 	public Employee(Integer id, String firstName, String lastName, String email, String password) {
-	super();
-	this.id = id;
-	this.firstName = firstName;
-	this.lastName = lastName;
-	this.email = email;
-	this.password = password;
-}
-
-
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
+	}
 
 	public Integer getId() {
 		return id;
@@ -111,11 +96,10 @@ public class Employee implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Employee id=" + id + 
-				", firstName=" + firstName + 
-				", lastName=" + lastName + 
+		return "Employee id=" + id +
+				", firstName=" + firstName +
+				", lastName=" + lastName +
 				", email=" + email +
 				", password=" + password;
 	}
-
 }

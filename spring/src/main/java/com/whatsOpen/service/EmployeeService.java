@@ -1,27 +1,25 @@
 package com.whatsOpen.service;
 
-import java.util.List;
-
 import com.whatsOpen.model.Employee;
 
+import java.util.List;
 
 public interface EmployeeService {
 
-	//POST
+	// CREATE
 	public Employee createEmployee(Employee e);
-		
-	//GET ALL
+
+	// READ
 	public List<Employee> findAllEmployees();
-		
-	//GET BY ID
+
 	public Employee findEmployeeById(Integer id);
-	
-	//GET BY EMAIL
+
 	public Employee findEmployeeByEmail(String email);
-		
-	//UPDATE
+
+	// UPDATE
 	public Employee updateEmployee(Employee e);
-		
-	//DELETE
+
+	// DELETE
 	public void deleteEmployeeById(Integer id);
+
 }

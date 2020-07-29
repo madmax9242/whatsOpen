@@ -1,16 +1,15 @@
 package com.whatsOpen.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+
 //import java.sql.Date;
 
-import javax.persistence.*;
-
 @Entity
-@SequenceGenerator(name ="shift_seq", initialValue = 401)
+@SequenceGenerator(name = "shift_seq", initialValue = 401)
 @Table(name = "tb_shift")
-public class Shift implements Serializable{
-	
+public class Shift implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -20,16 +19,15 @@ public class Shift implements Serializable{
 	//private Date shiftDate;
 	private String description;
 	private Integer employeeId;
-	
+
 //	@ManyToOne
 //    @JoinColumn(name="employee_id", insertable = false, updatable = false)
 //	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 //	private Employee employee;
 //    @OnDelete(action = OnDeleteAction.CASCADE)
-	
-	
-	
-	public Shift() {}
+
+	public Shift() {
+	}
 
 	public Shift(Integer id, String date, String description, Integer employeeId) {
 		super();
@@ -54,11 +52,13 @@ public class Shift implements Serializable{
 //	public void setDate(Date date) {
 //		this.shiftDate = date;
 //	}
-	
-	
 
 	public String getDescription() {
 		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getShiftDate() {
@@ -69,11 +69,6 @@ public class Shift implements Serializable{
 		this.shiftDate = shiftDate;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	
-	
 //
 //	public Employee getEmployee() {
 //		return employee;
@@ -93,9 +88,8 @@ public class Shift implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Shift id= " + id + 
-				", date= " + shiftDate + 
+		return "Shift id= " + id +
+				", date= " + shiftDate +
 				", description= " + description;
 	}
-	
 }

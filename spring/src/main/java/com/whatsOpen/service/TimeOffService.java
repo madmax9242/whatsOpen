@@ -1,28 +1,25 @@
 package com.whatsOpen.service;
 
-import java.util.List;
-
 import com.whatsOpen.model.TimeOff;
-import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 public interface TimeOffService {
 
-	//Post
+	// CREATE
 	public TimeOff createTimeOffRequest(TimeOff off);
-	
-	//Get by Id
+
+	// READ
+	public List<TimeOff> getAllTimeOff();
+
 	public TimeOff getAllRequestsById(Integer id);
-	
-	//Get by EmployeeId
+
 	public TimeOff getRequestByEmployeeId(Integer id);
-	
-	//Get All
-	public List<TimeOff> getallTimeOff();
-	
-	//Update request
+
+	// UPDATE
 	public TimeOff updateRequestOff(TimeOff off);
-	
-	//Delete request
+
+	// DELETE
 	public void deleteTimeOffRequest(Integer id);
-	
+
 }

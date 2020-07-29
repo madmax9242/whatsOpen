@@ -1,15 +1,14 @@
 package com.whatsOpen.dao;
 
-import java.util.List;
-
+import com.whatsOpen.model.Shift;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.whatsOpen.model.Shift;
+import java.util.List;
 
 @Repository
-public interface ShiftDAO extends JpaRepository<Shift, Integer>{
+public interface ShiftDAO extends JpaRepository<Shift, Integer> {
 
-	public abstract List<Shift> findByEmployeeId(Integer id);
-	
+	List<Shift> findByEmployeeId(Integer id);
+
 }
