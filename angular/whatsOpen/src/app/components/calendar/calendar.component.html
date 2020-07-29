@@ -1,5 +1,5 @@
-<div class="container-fluid mt-3">
-	<h2 class="text-center">{{month[0] | date: 'MMMM yyyy' }}</h2>
+<div class="container-fluid mt-4 p-4 shadow">
+	<h2 class="display-4 text-center my-4">{{month[0] | date: 'MMMM yyyy' }}</h2>
 	<mat-grid-list cols="7" rowHeight="100px">
 		<mat-grid-tile *ngFor="let header of monthHeader" colspan="1" rowspan="1" class="bg-dark">
 			<h5 class="row align-items-center text-white">{{header}}
