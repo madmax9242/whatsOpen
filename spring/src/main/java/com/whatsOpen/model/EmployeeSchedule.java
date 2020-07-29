@@ -1,25 +1,16 @@
 package com.whatsOpen.model;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-
+import javax.persistence.*;
 
 @Entity
 @SequenceGenerator(name = "employee_schedule_seq", initialValue = 301)
-@Table( name = "tb_employee_schedule")
-public class EmployeeSchedule{
+@Table(name = "tb_employee_schedule")
+public class EmployeeSchedule {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_schedule_seq")
 	private Integer id;
-	
+
 	private String monday;
 	private String tuesday;
 	private String wednesday;
@@ -28,12 +19,13 @@ public class EmployeeSchedule{
 	private String saturday;
 	private String sunday;
 	private Integer employeeId;
-	
+
 //	@OneToOne(fetch = FetchType.LAZY, optional = false)
 //    @JoinColumn(name = "employee_id", nullable = false)
 //	private Employee employee;
-	
-	public EmployeeSchedule() {}
+
+	public EmployeeSchedule() {
+	}
 
 	public Integer getId() {
 		return id;
@@ -42,7 +34,7 @@ public class EmployeeSchedule{
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
+
 	public String getMonday() {
 		return monday;
 	}
@@ -106,8 +98,6 @@ public class EmployeeSchedule{
 	public void setEmployeeId(Integer employeeId) {
 		this.employeeId = employeeId;
 	}
-	
-	
 
 //	public Employee getEmployee() {
 //		return employee;
@@ -116,5 +106,4 @@ public class EmployeeSchedule{
 //	public void setEmployee(Employee employee) {
 //		this.employee = employee;
 //	}
-
 }
