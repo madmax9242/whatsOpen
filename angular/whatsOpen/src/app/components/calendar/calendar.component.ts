@@ -13,6 +13,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class CalendarComponent implements OnInit {
 
 	month: Date[];
+	august: Date[];
 	monthHeader: string[] = [];
 
 	constructor(private datePipe: DatePipe, public dialog: MatDialog) {
@@ -44,13 +45,16 @@ export class CalendarComponent implements OnInit {
    * @return {Date[]} List with date objects for each day of the month
    */
 	getDaysInMonth() {
-		let month = new Date().getMonth();
+		let month = 7;
+		
 		var date = new Date(new Date().getFullYear(), month, 1);
+		console.log(date);
 		var days = [];
 		while (date.getMonth() === month) {
 			days.push(new Date(date));
 			date.setDate(date.getDate() + 1);
 		}
+		console.log(days);
 		for (let i = 0; i < 7; i++) {
 			this.monthHeader.push(this.datePipe.transform(days[i], 'EEEE').toString());
 		}
