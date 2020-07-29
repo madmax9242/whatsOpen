@@ -15,6 +15,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms'
 
@@ -24,6 +25,7 @@ import { EmployeeInfoComponent } from './components/employee-info/employee-info.
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { EventDialogComponent } from './components/event-dialog/event-dialog.component';
 import { TimeOffRequestComponent } from './components//time-off-request/time-off-request.component';
+import { CreateScheduleComponent } from './components/create-schedule/create-schedule.component';
 
 @NgModule({
 	declarations: [
@@ -34,6 +36,7 @@ import { TimeOffRequestComponent } from './components//time-off-request/time-off
 		CalendarComponent,
 		EventDialogComponent,
 		TimeOffRequestComponent,
+		CreateScheduleComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -52,6 +55,7 @@ import { TimeOffRequestComponent } from './components//time-off-request/time-off
 		HttpClientModule,
 		FormsModule,
 		ReactiveFormsModule,
+		MatIconModule
 	],
 	providers: [
 		MatDatepickerModule,

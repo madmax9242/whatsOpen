@@ -16,7 +16,7 @@ export class CalendarComponent implements OnInit {
 	monthHeader: string[] = [];
 
 	constructor(private datePipe: DatePipe, public dialog: MatDialog) {
-		this.month = this.getDaysInMonth(6, 2020);
+		this.month = this.getDaysInMonth();
 	}
 
 	ngOnInit(): void { }
@@ -38,13 +38,14 @@ export class CalendarComponent implements OnInit {
 		this.openDialog('Day Off', day);
 	}
 
-  /**
- * @param {int} The month number, 0 based
- * @param {int} The year, not zero based, required to account for leap years
- * @return {Date[]} List with date objects for each day of the month
- */
-	getDaysInMonth(month, year) {
-		var date = new Date(year, month, 1);
+	/**
+   * @param {int} The month number, 0 based
+   * @param {int} The year, not zero based, required to account for leap years
+   * @return {Date[]} List with date objects for each day of the month
+   */
+	getDaysInMonth() {
+		let month = new Date().getMonth();
+		var date = new Date(new Date().getFullYear(), month, 1);
 		var days = [];
 		while (date.getMonth() === month) {
 			days.push(new Date(date));
