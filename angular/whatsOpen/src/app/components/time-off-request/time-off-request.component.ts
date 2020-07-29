@@ -14,8 +14,8 @@ export class TimeOffRequestComponent implements OnInit {
 	timeOff: TimeOffRequest;
 
 	formTimeOff: FormGroup = new FormGroup({
-		start: new FormControl(),
-		end: new FormControl(),
+		startDate: new FormControl(),
+		endDate: new FormControl(),
 		reason: new FormControl()
 	});
 
@@ -32,15 +32,15 @@ export class TimeOffRequestComponent implements OnInit {
 
 	submitRequest(): void {
 		console.log(this.formTimeOff.value);
-		// this.timeOffService.addTimeOffRequest(this.timeOff).subscribe(data => {
-		//   console.log(data);
-		//   if(data) {
-		//     alert("Request Sent");
-		//   }
-		//   else {
-		//     alert("Error. Please try again");
-		//   }
+		this.timeOffService.addTimeOffRequest(this.formTimeOff.value).subscribe(data => {
+		  console.log(data);
+		  if(data) {
+		    alert("Request Sent");
+		  }
+		  else {
+		    alert("Error. Please try again");
+		  }
 
-		// })
+		})
 	}
 }
