@@ -37,7 +37,10 @@ public class EmployeeController {
 		es.createEmployee(new Employee(102, "Luke", "Skywalker", "luke@email.com", "redFive"));
 		es.createEmployee(new Employee(103, "Biggs", "Darklighter", "biggs@email.com", "redThree"));
 		es.createEmployee(new Employee(104, "Wedge", "Antilles", "wedge@email.com", "redLeader"));
-		es.createEmployee(new Employee(105, "Ewok", "SpaceBear", "ewok@email.com", "c3PO"));
+		es.createEmployee(new Employee(105, "Artoo", "Deetoo", "r2d2@email.com", "BeepBoop22"));
+		es.createEmployee(new Employee(106, "Ewok", "SpaceBear", "ewok@email.com", "c3PO"));
+		es.createEmployee(new Employee(107, "Mace", "Windu", "mace@email.com", "purpleSaber"));
+		es.createEmployee(new Employee(108, "Obi-wan", "Kenobi", "ben@email.com", "Oldben"));
 		
 		ss.add(new Shift(401, "2020-08-07T10:00:00.000Z", "Night Shift", 101));
 		ss.add(new Shift(402, "2020-08-01T10:00:00.000Z", "Day Shift", 101));

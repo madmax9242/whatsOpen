@@ -5,6 +5,6 @@ export class Employee {
 	lastName: string;
 	email: string;
 	password: string;
-	employeeScheduleId: number;
+	// employeeScheduleId: number;
 
 }
