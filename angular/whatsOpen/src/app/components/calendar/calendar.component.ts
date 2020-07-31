@@ -14,6 +14,7 @@ export class CalendarComponent implements OnInit {
 
 	month: Date[];
 	monthHeader: string[] = [];
+	
 	additive: number  = 0;
 
 	constructor(private datePipe: DatePipe, public dialog: MatDialog) {
@@ -45,18 +46,17 @@ export class CalendarComponent implements OnInit {
    * @return {Date[]} List with date objects for each day of the month
    */
 	getDaysInMonth() {
+		this.monthHeader = [];
 		var addition: number = +this.additive;
 		let month = new Date().getMonth();
 		month = month + addition;
 		var date = new Date(new Date().getFullYear(), month, 1);
 		var days = [];
-		console.log(month + " " + date);
 		while (date.getMonth() === month) {
 			days.push(new Date(date));
 			date.setDate(date.getDate() + 1);
 		}
 		for (let i = 0; i < 7; i++) {
-			console.log(days);
 			console.log(this.monthHeader);
 			this.monthHeader.push(this.datePipe.transform(days[i], 'EEEE').toString());
 		}
@@ -64,6 +64,9 @@ export class CalendarComponent implements OnInit {
 	}
 
 	generateCalendar() {
+		this.monthHeader = [];
+		console.log(this.monthHeader);
 		this.month = this.getDaysInMonth();
+		
 	}
 }
