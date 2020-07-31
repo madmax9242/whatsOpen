@@ -63,8 +63,6 @@ export class CalendarComponent implements OnInit {
 	}
 
 	generateCalendar() {
-		this.monthHeader = [];
-		console.log(this.monthHeader);
 		this.month = this.getDaysInMonth();
 		
 	}
