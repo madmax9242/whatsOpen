@@ -1,0 +1,127 @@
+<!-- <div class="example-container mat-elevation-z8">
+	<table mat-table [dataSource]="dataSource">
+		<caption>
+			<div class="container-fluid">
+				<span>Scheduler List</span>
+				<div class="row mt-3">
+					<div class="col-2">
+						<ul class="list-group-flush">
+							<li class="list-group-item list-group-item-warning"><Strong>D</Strong> - Day Shift</li>
+							<li class="list-group-item list-group-item-dark"><Strong>ON</Strong> - Over Night</li>
+							<li class="list-group-item list-group-item-success"><Strong>DO</Strong> - Day Off</li>
+							<li class="list-group-item list-group-item-danger"><Strong>CO</Strong> - Call Off</li>
+							<li class="list-group-item list-group-item-primary"><Strong>T</Strong> - Training</li>
+							<li class="list-group-item list-group-item-info"><Strong>V</Strong> - Vacations</li>
+							<li class="list-group-item list-group-item-secundary"><Strong>R</Strong> - Rest</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</caption>
+		<ng-container matColumnDef="position" sticky="true">
+			<th mat-header-cell *matHeaderCellDef id="position"> # </th>
+			<td mat-cell *matCellDef="let element;index as i" class="mat-position-cell"><strong>{{i+1}}</strong>
+			</td>
+			<td mat-footer-cell *matFooterCellDef> Position Footer </td>
+		</ng-container>
+
+		<ng-container matColumnDef="name" sticky="true">
+			<th mat-header-cell *matHeaderCellDef id="name"> Name </th>
+			<td mat-cell *matCellDef="let element" class="mat-name-cell"> {{element.name}} </td>
+			<td mat-footer-cell *matFooterCellDef> Name Footer </td>
+		</ng-container>
+
+		<div *ngFor="let day of dayOfTheMonth;index as idx">
+			<ng-container [matColumnDef]="day | date: 'd'">
+				<th mat-header-cell *matHeaderCellDef="let element" [id]="'d'+idx" class="text-center">{{idx+1}}
+				</th>
+				<td mat-cell *matCellDef="let element" class="text-center" [ngClass]="{
+						D:'shift-day',
+						ON:'shift-overnight',
+						V:'shift-vacation',
+						T:'shift-training',
+						DO:'shift-dayoff',
+						R:'text-secondary'
+					}[element['shiftDays'][idx]]">
+					<strong>{{element['shiftDays'][idx]}}</strong>
+				</td>
+				<td mat-footer-cell *matFooterCellDef> Filler footer cell </td>
+			</ng-container>
+		</div>
+
+		<tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>
+		<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+	</table>
+
+</div> -->
+
+<!-- <form [formGroup]="formCreateSchedule" (ngSubmit)="onSubmit()">
+	<input type="text" formControlName="month" placeholder="month">
+	<div formArrayName="employees">
+		<div *ngFor="let employee of employees.controls; let i=index">
+
+			<div [formGroup]="employee">
+				<input type="text" formControlName="name" placeholder="employee name">
+				<div formArrayName="shiftDays">
+					<div *ngFor="let shiftDay of employee.get('shiftDays').controls">
+						<div [formGroup]="shiftDay">
+							<input type="text" formControlName="date" placeholder="employee date">
+							<input type="text" formControlName="shift">
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<button type="submit" [disabled]="!formCreateSchedule.valid">Submit</button>
+</form> -->
+
+<form [formGroup]="formCreateSchedule" (ngSubmit)="onSubmit()">
+	<div class="table-responsive">
+		<table class="table table-hover table-fixed">
+			<caption>
+				<div class="container-fluid">
+					<span>Scheduler List</span>
+					<div class="row mt-3">
+						<div class="col-2">
+							<ul class="list-group-flush">
+								<li class="list-group-item list-group-item-warning"><Strong>D</Strong> - Day Shift</li>
+								<li class="list-group-item list-group-item-dark"><Strong>ON</Strong> - Over Night</li>
+								<li class="list-group-item list-group-item-success"><Strong>DO</Strong> - Day Off</li>
+								<li class="list-group-item list-group-item-danger"><Strong>CO</Strong> - Call Off</li>
+								<li class="list-group-item list-group-item-primary"><Strong>T</Strong> - Training</li>
+								<li class="list-group-item list-group-item-info"><Strong>V</Strong> - Vacations</li>
+								<li class="list-group-item list-group-item-secundary"><Strong>R</Strong> - Rest</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</caption>
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col" *ngFor="let header of displayedColumns">{{header}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let employee of dataSourceTable | async; let i=index" formArrayName="employees">
+					<th scope="row">{{i+1}}</th>
+					<ng-container [formGroup]="employee">
+						<td>
+							<input type="text" formControlName="name" placeholder="employee name">
+						</td>
+						<ng-container formArrayName="shiftDays">
+							<td *ngFor="let shiftDay of employee.get('shiftDays').controls">
+								<div [formGroup]="shiftDay">
+									<input type="text" formControlName="shift">
+								</div>
+							</td>
+						</ng-container>
+					</ng-container>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<button type="submit" [disabled]="!formCreateSchedule.valid">Submit</button>
+</form>

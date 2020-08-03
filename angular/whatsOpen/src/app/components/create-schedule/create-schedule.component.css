@@ -1,5 +1,5 @@
 .example-container {
-    height: 400px;
+    height: 500px;
     overflow: auto;
 }
 
@@ -19,6 +19,26 @@
 }
 
 .mat-header-cell, .mat-footer-cell, .mat-cell {
-    min-width: 60px;
+    min-width: 40px;
     box-sizing: border-box;
+}
+
+.mat-name-cell{
+    min-width: 150px !important;
+    padding-left: 5px;
+    padding-right: 5px;
+    box-sizing: border-box;
+}
+
+.mat-position-cell{
+    min-width: 30px !important;
+    box-sizing: border-box;
+}
+
+th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
+    padding-left: 15px;
+}
+
+table > caption {
+    padding-left: 10px;
 }
