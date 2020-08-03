@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import { FormBuilder, FormArray, AbstractControl, FormGroup } from '@angular/forms';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
 	selector: 'app-create-schedule',
@@ -10,17 +12,62 @@ import { DatePipe } from '@angular/common';
 export class CreateScheduleComponent implements OnInit {
 
 	displayedColumns: string[] = [];
+	// displayedColumnsTest: string[] = ['position', 'name', '1', '2', '3', '4', '5', '6'];
 	dataSource = ELEMENT_DATA;
+	dataSourceTable = new BehaviorSubject<AbstractControl[]>([]);
 
-	tables = [0];
-	dayOfTheMonth: any[] = [];
+	today = new Date();
+	daysMonth: any[] = [];
 
-	constructor(private datePipe: DatePipe) {
-		this.dayOfTheMonth = this.getDaysInMonth();
-		this.fillColumnNames(this.dayOfTheMonth);
+	constructor(private datePipe: DatePipe, private fb: FormBuilder) {
+		this.daysMonth = this.getDaysInMonth();
+		this.fillColumnNames(this.daysMonth);
+	}
+
+	// Add Employee as Form
+	formCreateSchedule = this.fb.group({
+		month: [''],
+		employees: this.fb.array([]),
+		// employees: this.fb.array([this.employee]),
+	});
+
+	get employees() {
+		return this.formCreateSchedule.get('employees') as FormArray;
+	}
+
+	get employee(): FormGroup {
+		return this.fb.group({
+			name: [''],
+			shiftDays: this.fb.array([])
+			// shiftDays: this.fb.array([this.shiftDay])
+		});
+	}
+
+	get shiftDay(): FormGroup {
+		return this.fb.group({
+			date: [''],
+			shift: ['']
+		})
+	}
+
+	get shiftDays() {
+		return this.employee.get('shiftDays') as FormArray;
+	}
+
+	addEmployee(employee) {
+		this.employees.push(employee);
+	}
+
+	addShift(employee, shiftDay) {
+		employee.get("shiftDays").push(shiftDay);
+	}
+
+	onSubmit() {
+		console.log(this.formCreateSchedule.value);
 	}
 
 	ngOnInit(): void {
+		this.fillEmployeesForm(this.daysMonth);
 	}
 
 	getDaysInMonth() {
@@ -36,59 +83,39 @@ export class CreateScheduleComponent implements OnInit {
 
 	fillColumnNames(days: any[]) {
 		this.displayedColumns.length = days.length + 2;
-		//this.displayedColumns.fill('filler');
 		this.displayedColumns[0] = 'position';
 		this.displayedColumns[1] = 'name';
-		for (let i = 2; i < this.displayedColumns.length; i++) {
-			this.displayedColumns[i] = this.datePipe.transform(days[i - 2], 'MMddyyyy');
+		for (let i = 0; i < days.length; i++) {
+			this.displayedColumns[i + 2] = (i + 1) + '';
 		}
-		console.log(this.displayedColumns);
+	}
+
+	fillEmployeesForm(days: any[]) {
+		for (let data of this.dataSource) {
+			let setEmployee = this.employee;
+			setEmployee.get('name').setValue(data.name);
+			for (let i = 0; i < days.length; i++) {
+				try {
+					let setShiftDay = this.shiftDay;
+					setShiftDay.get('date').setValue(this.datePipe.transform(days[i], 'longDate'));
+					setShiftDay.get('shift').setValue(data.shiftDays[i]);
+					this.addShift(setEmployee, setShiftDay);
+				} catch (error) {
+					console.log('Error', error);
+				}
+			}
+			this.addEmployee(setEmployee);
+		}
+		this.dataSourceTable.next(this.employees.controls);
 	}
 }
 
 export interface EmployeeSchedule {
 	name: string;
-	day1Shift: String;
-	day2Shift?: String;
-	day3Shift?: String;
-	day4Shift?: String;
-	day5Shift?: String;
-	day6Shift?: String;
-	day7Shift?: String;
-	day8Shift?: String;
-	day9Shift?: String;
-	day10Shift?: String;
-	day11Shift?: String;
-	day12Shift?: String;
-	day13Shift?: String;
-	day14Shift?: String;
-	day15Shift?: String;
-	day16Shift?: String;
-	day17Shift?: String;
-	day18Shift?: String;
-	day19Shift?: String;
-	day20Shift?: String;
-	day21Shift?: String;
-	day22Shift?: String;
-	day23Shift?: String;
-	day24Shift?: String;
-	day25Shift?: String;
-	day26Shift?: String;
-	day27Shift?: String;
-	day28Shift?: String;
-	day29Shift?: String;
-	day30Shift?: String;
-	day31Shift?: String;
+	shiftDays: string[];
 }
 
 const ELEMENT_DATA: EmployeeSchedule[] = [
-	{ name: 'Hydrogen', day1Shift: 'N' },
-	{ name: 'Lithium', day1Shift: 'D' },
-	{ name: 'Beryllium', day1Shift: 'D' },
-	{ name: 'Boron', day1Shift: 'N' },
-	{ name: 'Carbon', day1Shift: 'N' },
-	{ name: 'Nitrogen', day1Shift: 'N' },
-	{ name: 'Oxygen', day1Shift: 'N' },
-	{ name: 'Fluorine', day1Shift: 'N' },
-	{ name: 'Neon', day1Shift: 'N' },
+	{ name: 'Hydrogen Lithium Beryllium', shiftDays: ['ON', 'R', 'D', 'R'] },
+	{ name: 'Lithium', shiftDays: ['D', 'D', 'ON', 'R'] },
 ];
